@@ -21,6 +21,13 @@ namespace Second_Aid.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
+
+            StartActivity(typeof(LoginActivity));
+        }
+
+        public void OnLoginClick(View view)
+        {
+            // Console.Write("")
         }
     }
 }
