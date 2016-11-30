@@ -76,12 +76,12 @@ namespace Second_Aid.Droid
                 if (responseJson == null)   // check for compatible format 
                     return null;
 
-                var token = responseJson.GetValue("access_token").ToString();
+                var token = responseJson.GetValue("access_token");
 
                 if (token == null)          // check for token 
                     return null;
 
-                return token;
+                return token.ToString();
             }
         }
 
