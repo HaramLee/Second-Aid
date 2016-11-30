@@ -19,5 +19,6 @@ namespace Second_Aid.Droid
         public const string LOGIN_URL = "/connect/token";
         public const string LOGOUT_URL = "/connect/logout";
         public const string MEDICATION_URL = "/api/medications";
+        public const string PREINSTRUCTIONS_URL = "/api/PreInstructions";
     }
 }
