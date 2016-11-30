@@ -9,44 +9,31 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using System.Threading.Tasks;
 using System.Net.Http;
-using System.Net.Http.Headers;
-using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using Second_Aid.Droid.Models;
-using System.Threading.Tasks;
 
 namespace Second_Aid.Droid
 {
-    [Activity(Label = "MainPageActivity")]
-    public class MainPageActivity : Activity
+    [Activity(Label = "MedicationsActivity")]
+    public class MedicationsActivity : Activity
     {
         private string token;
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            SetContentView(Resource.Layout.MainPageLayout);
+            SetContentView(Resource.Layout.MedicationsLayout);
 
             this.token = Intent.GetStringExtra(Constants.TOKEN_KEY) ?? "No token detected.";
-            Android.Widget.Toast.MakeText(this, this.token, Android.Widget.ToastLength.Short).Show();
 
-            ListView dataDisplay = FindViewById<ListView>(Resource.Id.data_listview);
+            ListView dataDisplay = FindViewById<ListView>(Resource.Id.medications_listview);
 
-            Button logoutBtn = FindViewById<Button>(Resource.Id.logout_button);
-            logoutBtn.Click += (object sender, EventArgs args) =>
-            {
-                logout();
-            };
-
-            Button medicationsBtn = FindViewById<Button>(Resource.Id.medications_button);
-            medicationsBtn.Click += (object sender, EventArgs args) =>
-            {
-                Intent scheduleActivityIntent = new Intent(this, typeof(MedicationsActivity));
-                scheduleActivityIntent.PutExtra(Constants.TOKEN_KEY, this.token);
-                StartActivity(scheduleActivityIntent);
-            };
+            var items = await getMedications();
+            var adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, items);
+            dataDisplay.Adapter = adapter;
         }
 
         private async Task<List<string>> getMedications()
@@ -69,20 +56,8 @@ namespace Second_Aid.Droid
                     data.Add(medication.Name);
                 }
 
-                return data; 
+                return data;
             }
         }
-
-        public override void OnBackPressed()
-        {
-            logout();
-        }
-
-        private void logout()
-        {
-            // logout? connect/logout doesn't seem to work
-            Finish();
-        }
-
     }
 }
