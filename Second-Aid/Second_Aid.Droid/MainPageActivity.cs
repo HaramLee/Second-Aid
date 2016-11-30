@@ -41,11 +41,11 @@ namespace Second_Aid.Droid
             };
 
             Button medicationsBtn = FindViewById<Button>(Resource.Id.medications_button);
-            medicationsBtn.Click += async (object sender, EventArgs args) =>
+            medicationsBtn.Click += (object sender, EventArgs args) =>
             {
-                var items = await getMedications();
-                var adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, items);
-                dataDisplay.Adapter = adapter;
+                Intent scheduleActivityIntent = new Intent(this, typeof(MedicationsActivity));
+                scheduleActivityIntent.PutExtra(Constants.TOKEN_KEY, this.token);
+                StartActivity(scheduleActivityIntent);
             };
 
             Button preInstructionsBtn = FindViewById<Button>(Resource.Id.preInstructions_button);
