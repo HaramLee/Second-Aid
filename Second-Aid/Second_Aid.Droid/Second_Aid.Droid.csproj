@@ -120,6 +120,8 @@
     <Compile Include="MainPageActivity.cs" />
     <Compile Include="MedicationsActivity.cs" />
     <Compile Include="Models\Medication.cs" />
+    <Compile Include="Models\PreInstructions.cs" />
+    <Compile Include="Models\Procedure.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -133,7 +135,7 @@
     <AndroidResource Include="Resources\layout\MainPageLayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\MedicationsLayout.axml">
+    <AndroidResource Include="Resources\layout\Homepage.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
