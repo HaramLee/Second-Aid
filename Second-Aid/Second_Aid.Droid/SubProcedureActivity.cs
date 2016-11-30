@@ -16,8 +16,8 @@ using Second_Aid.Droid.Models;
 
 namespace Second_Aid.Droid
 {
-    [Activity(Label = "PreInstructionsActivity")]
-    public class PreInstructionsActivity : Activity
+    [Activity(Label = "SubProcedureActivity")]
+    public class SubProcedureActivity : Activity
     {
         public string token;
 
@@ -25,23 +25,23 @@ namespace Second_Aid.Droid
         {
             base.OnCreate(savedInstanceState);
 
-            SetContentView(Resource.Layout.PreInstructions);
+            SetContentView(Resource.Layout.SubProcedures);
 
             this.token = Intent.GetStringExtra(Constants.TOKEN_KEY) ?? "No token detected.";
             Android.Widget.Toast.MakeText(this, this.token, Android.Widget.ToastLength.Short).Show();
 
             ListView dataDisplay = FindViewById<ListView>(Resource.Id.data_listview);
 
-            Button preInstructionsBtn = FindViewById<Button>(Resource.Id.preInstructions_button);
-            preInstructionsBtn.Click += async (object sender, EventArgs args) =>
+            Button subProceduresBtn = FindViewById<Button>(Resource.Id.subProcedures_button);
+            subProceduresBtn.Click += async (object sender, EventArgs args) =>
             {
-                var items = await getPreInstructions();
+                var items = await getSubProcedures();
                 var adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, items);
                 dataDisplay.Adapter = adapter;
             };
         }
 
-        private async Task<List<string>> getPreInstructions()
+        private async Task<List<string>> getSubProcedures()
         {
             using (var client = new HttpClient())
             {
@@ -49,16 +49,16 @@ namespace Second_Aid.Droid
                 // client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer ", this.token);
                 client.DefaultRequestHeaders.Add("Authorization", String.Format("Bearer {0}", this.token));
 
-                var response = await client.GetAsync(Constants.BASE_URL + Constants.PREINSTRUCTIONS_URL);
+                var response = await client.GetAsync(Constants.BASE_URL + Constants.SUBPROCEDURES_URL);
 
                 var responseString = await response.Content.ReadAsStringAsync();
 
-                var responseMArray = JsonConvert.DeserializeObject<List<PreInstructions>>(responseString);
+                var responseMArray = JsonConvert.DeserializeObject<List<SubProcedure>>(responseString);
 
                 List<string> data = new List<string>();
-                foreach (var preInstruction in responseMArray)
+                foreach (var subProcedure in responseMArray)
                 {
-                    data.Add(preInstruction.title);
+                    data.Add(subProcedure.name);
                 }
 
                 return data;

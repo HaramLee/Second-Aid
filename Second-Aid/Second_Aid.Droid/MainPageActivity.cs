@@ -48,12 +48,12 @@ namespace Second_Aid.Droid
                 StartActivity(scheduleActivityIntent);
             };
 
-            Button preInstructionsBtn = FindViewById<Button>(Resource.Id.preInstructions_button);
-            preInstructionsBtn.Click += (object sender, EventArgs args) =>
+            Button subProceduresBtn = FindViewById<Button>(Resource.Id.subProcedures_button);
+            subProceduresBtn.Click += (object sender, EventArgs args) =>
             {
                 if (token != null)
                 {
-                    Intent scheduleActivityIntent = new Intent(this, typeof(PreInstructionsActivity));
+                    Intent scheduleActivityIntent = new Intent(this, typeof(SubProcedureActivity));
                     scheduleActivityIntent.PutExtra(Constants.TOKEN_KEY, token);
                     StartActivity(scheduleActivityIntent);
                 }
