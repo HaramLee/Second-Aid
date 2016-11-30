@@ -21,7 +21,7 @@ namespace Second_Aid.Droid
     {
         public string token;
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
@@ -32,13 +32,9 @@ namespace Second_Aid.Droid
 
             ListView dataDisplay = FindViewById<ListView>(Resource.Id.data_listview);
 
-            Button subProceduresBtn = FindViewById<Button>(Resource.Id.subProcedures_button);
-            subProceduresBtn.Click += async (object sender, EventArgs args) =>
-            {
-                var items = await getSubProcedures();
-                var adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, items);
-                dataDisplay.Adapter = adapter;
-            };
+            var items = await getSubProcedures();
+            var adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, items);
+            dataDisplay.Adapter = adapter;
         }
 
         private async Task<List<string>> getSubProcedures()

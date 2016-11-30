@@ -15,7 +15,7 @@ namespace Second_Aid.Droid
     public class Constants
     {
         public const string TOKEN_KEY = "token_key";
-        public const string BASE_URL = "http://secondaid.azurewebsites.net";
+        public const string BASE_URL = "http://testaid.azurewebsites.net";
         public const string LOGIN_URL = "/connect/token";
         public const string LOGOUT_URL = "/connect/logout";
         public const string MEDICATION_URL = "/api/medications";

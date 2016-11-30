@@ -34,11 +34,23 @@
             android:background="@android:color/black"
             android:inputType="textPassword"
             android:hint="Password" />
+        <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="#f7f7f7" />
+        <EditText
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/black"
+            android:layout_below="@id/password"
+            android:id="@+id/clinicId"
+            android:hint="Clinic ID" />
         <Button
             android:id="@+id/login"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/password"
+            android:layout_below="@id/clinicId"
             android:layout_marginTop="10dp"
             android:background="#307FC1"
             android:text="Login"

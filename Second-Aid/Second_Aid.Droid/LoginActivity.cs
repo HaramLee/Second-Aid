@@ -30,16 +30,18 @@ namespace Second_Aid.Droid
             //Initializing button from layout
             Button login = FindViewById<Button>(Resource.Id.login);
 
-            var usernameInput = FindViewById<TextView>(Resource.Id.userName);
-            var passwordInput = FindViewById<TextView>(Resource.Id.password);
+            var usernameInput = FindViewById<EditText>(Resource.Id.userName);
+            var passwordInput = FindViewById<EditText>(Resource.Id.password);
+            var clinicIdInput = FindViewById<EditText>(Resource.Id.clinicId);
 
             //Login button click action
             login.Click += async (object sender, EventArgs e) => {
                 var username = usernameInput.Text.ToString();
-                var password = passwordInput.Text.ToString(); 
+                var password = passwordInput.Text.ToString();
+                var clinicId = clinicIdInput.Text.ToString();
                 Android.Widget.Toast.MakeText(this, "Login Button Clicked with credentials " + username + password, Android.Widget.ToastLength.Short).Show();
 
-                var token = await Login(Constants.BASE_URL + Constants.LOGIN_URL, username, password);
+                var token = await Login(Constants.BASE_URL + Constants.LOGIN_URL, username, password, clinicId);
 
                 if (token != null)
                 {
@@ -51,7 +53,7 @@ namespace Second_Aid.Droid
             };
         }
 
-        private async Task<string> Login(string url, string username, string password)
+        private async Task<string> Login(string url, string username, string password, string clinicId)
         {
             using (var client = new HttpClient())
             {
@@ -59,7 +61,8 @@ namespace Second_Aid.Droid
                 {
                    { "grant_type", "password" },
                    { "username", username },
-                   { "password", password }
+                   { "password", password },
+                   { "clinic_id", clinicId }
                 };
 
                 var content = new FormUrlEncodedContent(values);
