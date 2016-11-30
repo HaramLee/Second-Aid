@@ -47,6 +47,17 @@ namespace Second_Aid.Droid
                 var adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, items);
                 dataDisplay.Adapter = adapter;
             };
+
+            Button preInstructionsBtn = FindViewById<Button>(Resource.Id.preInstructions_button);
+            preInstructionsBtn.Click += (object sender, EventArgs args) =>
+            {
+                if (token != null)
+                {
+                    Intent scheduleActivityIntent = new Intent(this, typeof(PreInstructionsActivity));
+                    scheduleActivityIntent.PutExtra(Constants.TOKEN_KEY, token);
+                    StartActivity(scheduleActivityIntent);
+                }
+            };
         }
 
         private async Task<List<string>> getMedications()
