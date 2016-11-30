@@ -16,10 +16,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/medications_button" />
     <Button
-        android:text="PreInstructions"
+        android:text="SubProcedures"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/preInstructions_button" />
+        android:id="@+id/subProcedures_button" />
     <ListView
         android:minWidth="25px"
         android:minHeight="25px"

@@ -2531,9 +2531,6 @@ namespace Second_Aid.Droid
 			// aapt resource value: 0x7f070029
 			public const int pin = 2131165225;
 			
-			// aapt resource value: 0x7f070077
-			public const int preInstructions_button = 2131165303;
-			
 			// aapt resource value: 0x7f070006
 			public const int progress_circular = 2131165190;
 			
@@ -2641,6 +2638,9 @@ namespace Second_Aid.Droid
 			
 			// aapt resource value: 0x7f070094
 			public const int status_bar_latest_event_content = 2131165332;
+			
+			// aapt resource value: 0x7f070077
+			public const int subProcedures_button = 2131165303;
 			
 			// aapt resource value: 0x7f070065
 			public const int submit_area = 2131165285;
@@ -2934,16 +2934,16 @@ namespace Second_Aid.Droid
 			public const int notification_template_part_time = 2130903092;
 			
 			// aapt resource value: 0x7f030035
-			public const int PreInstructions = 2130903093;
+			public const int select_dialog_item_material = 2130903093;
 			
 			// aapt resource value: 0x7f030036
-			public const int select_dialog_item_material = 2130903094;
+			public const int select_dialog_multichoice_material = 2130903094;
 			
 			// aapt resource value: 0x7f030037
-			public const int select_dialog_multichoice_material = 2130903095;
+			public const int select_dialog_singlechoice_material = 2130903095;
 			
 			// aapt resource value: 0x7f030038
-			public const int select_dialog_singlechoice_material = 2130903096;
+			public const int SubProcedures = 2130903096;
 			
 			// aapt resource value: 0x7f030039
 			public const int support_simple_spinner_dropdown_item = 2130903097;
