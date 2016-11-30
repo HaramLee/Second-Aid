@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using Android.App;
 using Android.Content;
@@ -9,12 +7,19 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using System.Threading.Tasks;
+using System.Net;
+using System.IO;
+using System.Net.Http;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace Second_Aid.Droid
 {
-    [Activity(Label = "LoginActivity")]
+    [Activity(Label = "LoginActivity", MainLauncher = true)]
     public class LoginActivity : Activity
     {
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -29,12 +34,56 @@ namespace Second_Aid.Droid
             var passwordInput = FindViewById<TextView>(Resource.Id.password);
 
             //Login button click action
-            login.Click += (object sender, EventArgs e) => {
+            login.Click += async (object sender, EventArgs e) => {
                 var username = usernameInput.Text.ToString();
                 var password = passwordInput.Text.ToString(); 
                 Android.Widget.Toast.MakeText(this, "Login Button Clicked with credentials " + username + password, Android.Widget.ToastLength.Short).Show();
-                
+
+                var token = await Login(Constants.BASE_URL + Constants.LOGIN_URL, username, password);
+
+                if (token != null)
+                {
+                    Intent scheduleActivityIntent = new Intent(this, typeof(MainPageActivity));
+                    scheduleActivityIntent.PutExtra(Constants.TOKEN_KEY, token);
+                    StartActivity(scheduleActivityIntent);
+                }
+
             };
         }
+
+        private async Task<string> Login(string url, string username, string password)
+        {
+            using (var client = new HttpClient())
+            {
+                var values = new Dictionary<string, string>
+                {
+                   { "grant_type", "password" },
+                   { "username", username },
+                   { "password", password }
+                };
+
+                var content = new FormUrlEncodedContent(values);
+
+                var response = await client.PostAsync(url, content);
+
+                var responseString = await response.Content.ReadAsStringAsync();
+
+                if (responseString == null) // check for response 
+                    return null;
+
+                var responseJson = JObject.Parse(responseString);
+
+                if (responseJson == null)   // check for compatible format 
+                    return null;
+
+                var token = responseJson.GetValue("access_token").ToString();
+
+                if (token == null)          // check for token 
+                    return null;
+
+                return token;
+            }
+        }
+
     }
 }
