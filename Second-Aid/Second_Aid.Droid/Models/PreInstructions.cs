@@ -19,7 +19,7 @@ namespace Second_Aid.Droid.Models
         public int preInstructionId { get; set; }
 
         [JsonProperty("title")]
-        public int title { get; set; }
+        public string title { get; set; }
 
         [JsonProperty("description")]
         public string description { get; set; }
