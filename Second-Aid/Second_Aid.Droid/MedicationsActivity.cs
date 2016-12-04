@@ -41,8 +41,7 @@ namespace Second_Aid.Droid
         {
             using (var client = new HttpClient())
             {
-                // THIS DOESN'T WORK, even when encoding token => UTF8Bytes => Base64String
-                // client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer ", this.token);
+     
                 client.DefaultRequestHeaders.Add("Authorization", String.Format("Bearer {0}", this.token));
 
                 var response = await client.GetAsync(Constants.BASE_URL + Constants.MEDICATION_URL);

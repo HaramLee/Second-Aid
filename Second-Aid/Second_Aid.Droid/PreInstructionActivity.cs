@@ -32,7 +32,7 @@ namespace Second_Aid.Droid
             this.token = Intent.GetStringExtra(Constants.TOKEN_KEY) ?? "No token detected.";
             this.preprocedureName = Intent.GetStringExtra(Constants.PREPROCEDURE_KEY) ?? "No procedure name detected.";
             this.preprocedureId = Intent.GetStringExtra(Constants.PREPROCEDUREID_KEY) ?? "No procedure id detected.";
-
+            Console.WriteLine("this is procID testing! " + preprocedureId);
             ListView dataDisplay = FindViewById<ListView>(Resource.Id.preinstruction_listview);
 
             var items = await getPreInstructions();
@@ -51,8 +51,7 @@ namespace Second_Aid.Droid
         {
             using (var client = new HttpClient())
             {
-                // THIS DOESN'T WORK, even when encoding token => UTF8Bytes => Base64String
-                // client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer ", this.token);
+                
                 client.DefaultRequestHeaders.Add("Authorization", String.Format("Bearer {0}", this.token));
 
                 var response = await client.GetAsync(Constants.BASE_URL + Constants.PREINSTRUCTIONS_URL);
@@ -65,7 +64,8 @@ namespace Second_Aid.Droid
 
                 foreach (var preInstructions in responseMArray)
                 {
-                    if (preInstructions.subProcedureId.Equals(preprocedureId))
+                    
+                    if (preInstructions.subProcedureId.ToString().Equals(preprocedureId))
                     {
                         data.Add(preInstructions.title);
                     }

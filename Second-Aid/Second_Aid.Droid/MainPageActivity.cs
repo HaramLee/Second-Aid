@@ -22,7 +22,11 @@ namespace Second_Aid.Droid
     public class MainPageActivity : Activity
     {
         private string token;
+        private List<string> items = new List<string>();
         private List<string> idItems = new List<string>();
+
+        private Dictionary<int, string> Pairs = new Dictionary<int, string>();
+
         internal static List<int> medicationId = new List<int>();
 
         protected override async void OnCreate(Bundle savedInstanceState)
@@ -42,27 +46,8 @@ namespace Second_Aid.Droid
                 logout();
             };
 
-            Button medicationsBtn = FindViewById<Button>(Resource.Id.medications_button);
-            medicationsBtn.Click += (object sender, EventArgs args) =>
-            {
-                Intent scheduleActivityIntent = new Intent(this, typeof(MedicationsActivity));
-                scheduleActivityIntent.PutExtra(Constants.TOKEN_KEY, this.token);
-                StartActivity(scheduleActivityIntent);
-            };
 
-            Button subProceduresBtn = FindViewById<Button>(Resource.Id.subProcedures_button);
-            subProceduresBtn.Click += (object sender, EventArgs args) =>
-            {
-                if (token != null)
-                {
-                    Intent scheduleActivityIntent = new Intent(this, typeof(SubProcedureActivity));
-                    scheduleActivityIntent.PutExtra(Constants.TOKEN_KEY, token);
-                    StartActivity(scheduleActivityIntent);
-                }
-            };
-
-
-            var items = await getProcedureID();
+            items = await getProcedureID();
             idItems = await getProcedure(items);
 
             var adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, idItems);
@@ -78,6 +63,7 @@ namespace Second_Aid.Droid
             Intent procedureActivityIntent = new Intent(this, typeof(ProcedureActivity));
 
             procedureActivityIntent.PutExtra(Constants.PROCEDURE_KEY, idItems[e.Position]);
+            procedureActivityIntent.PutExtra(Constants.PROCEDUREID_KEY, items[e.Position]);
             procedureActivityIntent.PutExtra(Constants.TOKEN_KEY, token);
 
             StartActivity(procedureActivityIntent);
@@ -87,8 +73,7 @@ namespace Second_Aid.Droid
         {
             using (var client = new HttpClient())
             {
-                // THIS DOESN'T WORK, even when encoding token => UTF8Bytes => Base64String
-                // client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer ", this.token);
+
                 client.DefaultRequestHeaders.Add("Authorization", String.Format("Bearer {0}", this.token));
 
                 var response = await client.GetAsync(Constants.BASE_URL + Constants.GETPROCEDUREID_URL);
@@ -98,8 +83,10 @@ namespace Second_Aid.Droid
                 var responseMArray = JsonConvert.DeserializeObject<List<PatientProcedures>>(responseString);
 
                 List<string> data = new List<string>();
+
                 foreach (var patientProcedures in responseMArray)
                 {
+
                     if (!data.Contains(patientProcedures.procedureId))
                     {
                         data.Add(patientProcedures.procedureId);

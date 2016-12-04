@@ -16,6 +16,7 @@ namespace Second_Aid.Droid
     {
         public const string TOKEN_KEY = "token_key";
         public const string PROCEDURE_KEY = "procedure_key";
+        public const string PROCEDUREID_KEY = "procedureId_key";
         public const string PREPROCEDURE_KEY = "preprocedure_key";
         public const string PREPROCEDUREID_KEY = "preprocedureId_key";
 

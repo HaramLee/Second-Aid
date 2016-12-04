@@ -20,9 +20,9 @@ namespace Second_Aid.Droid
     public class SubProcedureActivity : Activity
     {
         public string token;
-        public string procedureName;
+        public string procedureId;
         private List<string> items = new List<string>();
-        private List<int> subProcedureId = new List<int>();
+        private List<string> subProcedureId = new List<string>();
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
@@ -31,11 +31,12 @@ namespace Second_Aid.Droid
             SetContentView(Resource.Layout.SubProcedures);
 
             this.token = Intent.GetStringExtra(Constants.TOKEN_KEY) ?? "No token detected.";
-            this.procedureName = Intent.GetStringExtra(Constants.PROCEDURE_KEY) ?? "No procedure name detected.";
+            this.procedureId = Intent.GetStringExtra(Constants.PROCEDUREID_KEY) ?? "No procedure Id detected.";
 
             ListView dataDisplay = FindViewById<ListView>(Resource.Id.data_listview);
 
             items = await getSubProcedures();
+
             var adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, items);
             dataDisplay.Adapter = adapter;
 
@@ -49,6 +50,7 @@ namespace Second_Aid.Droid
 
             procedureActivityIntent.PutExtra(Constants.PREPROCEDURE_KEY, items[e.Position]);
             procedureActivityIntent.PutExtra(Constants.PREPROCEDUREID_KEY, subProcedureId[e.Position]);
+            Console.WriteLine("this is subProcedureId " + subProcedureId[e.Position]);
             procedureActivityIntent.PutExtra(Constants.TOKEN_KEY, token);
 
             StartActivity(procedureActivityIntent);
@@ -58,8 +60,7 @@ namespace Second_Aid.Droid
         {
             using (var client = new HttpClient())
             {
-                // THIS DOESN'T WORK, even when encoding token => UTF8Bytes => Base64String
-                // client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer ", this.token);
+
                 client.DefaultRequestHeaders.Add("Authorization", String.Format("Bearer {0}", this.token));
 
                 var response = await client.GetAsync(Constants.BASE_URL + Constants.SUBPROCEDURES_URL);
@@ -71,10 +72,12 @@ namespace Second_Aid.Droid
                 List<string> data = new List<string>();
                 foreach (var subProcedure in responseMArray)
                 {
-                    if (subProcedure.procedure.name.Equals(procedureName))
+                
+                    if (subProcedure.procedureId.ToString().Equals(procedureId))
                     {
                         data.Add(subProcedure.name);
-                        subProcedureId.Add(subProcedure.subProcedureId);
+                
+                        subProcedureId.Add(subProcedure.subProcedureId.ToString());
                     }
                 }
 

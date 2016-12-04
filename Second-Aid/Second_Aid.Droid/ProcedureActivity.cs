@@ -21,6 +21,7 @@ namespace Second_Aid.Droid
     {
 
         private string procedureName;
+        private string procedureId;
         private string token;
         TextView title;
         TextView ClinicName;
@@ -36,6 +37,7 @@ namespace Second_Aid.Droid
             SetContentView(Resource.Layout.Procedures);
 
             this.procedureName = Intent.GetStringExtra(Constants.PROCEDURE_KEY) ?? "No Procedure Name detected.";
+            this.procedureId = Intent.GetStringExtra(Constants.PROCEDUREID_KEY) ?? "No Procedure Id detected.";
             this.token = Intent.GetStringExtra(Constants.TOKEN_KEY) ?? "No token detected.";
 
             Button medicationButton = FindViewById<Button>(Resource.Id.MedicationButton);
@@ -66,7 +68,7 @@ namespace Second_Aid.Droid
         
                 Intent preprocedureActivityIntent = new Intent(this, typeof(SubProcedureActivity));
                 preprocedureActivityIntent.PutExtra(Constants.TOKEN_KEY, token);
-                preprocedureActivityIntent.PutExtra(Constants.PROCEDURE_KEY, procedureName);
+                preprocedureActivityIntent.PutExtra(Constants.PROCEDUREID_KEY, procedureId);
                 StartActivity(preprocedureActivityIntent);
      
             };
@@ -77,8 +79,7 @@ namespace Second_Aid.Droid
         {
             using (var client = new HttpClient())
             {
-                // THIS DOESN'T WORK, even when encoding token => UTF8Bytes => Base64String
-                // client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer ", this.token);
+
                 client.DefaultRequestHeaders.Add("Authorization", String.Format("Bearer {0}", this.token));
 
                 var response = await client.GetAsync(Constants.BASE_URL + Constants.CLINIC_URL);
