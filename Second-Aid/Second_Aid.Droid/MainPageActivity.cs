@@ -22,6 +22,8 @@ namespace Second_Aid.Droid
     public class MainPageActivity : Activity
     {
         private string token;
+        private List<string> idItems = new List<string>();
+        internal static List<int> medicationId = new List<int>();
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
@@ -61,12 +63,24 @@ namespace Second_Aid.Droid
 
 
             var items = await getProcedureID();
-            var idItems = await getProcedure(items);
+            idItems = await getProcedure(items);
 
             var adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, idItems);
             dataDisplay.Adapter = adapter;
 
+            dataDisplay.ItemClick += listviewClicked;
 
+
+        }
+
+        void listviewClicked(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            Intent procedureActivityIntent = new Intent(this, typeof(ProcedureActivity));
+
+            procedureActivityIntent.PutExtra(Constants.PROCEDURE_KEY, idItems[e.Position]);
+            procedureActivityIntent.PutExtra(Constants.TOKEN_KEY, token);
+
+            StartActivity(procedureActivityIntent);
         }
 
         private async Task<List<string>> getProcedureID()
@@ -89,6 +103,7 @@ namespace Second_Aid.Droid
                     if (!data.Contains(patientProcedures.procedureId))
                     {
                         data.Add(patientProcedures.procedureId);
+                        medicationId.Add(patientProcedures.MedicationId);
                     }
                 
                 }

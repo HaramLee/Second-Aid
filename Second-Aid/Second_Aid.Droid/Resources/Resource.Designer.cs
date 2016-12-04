@@ -2216,6 +2216,27 @@ namespace Second_Aid.Droid
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f0700a5
+			public const int ClinicName = 2131165349;
+			
+			// aapt resource value: 0x7f0700a7
+			public const int DoctorName = 2131165351;
+			
+			// aapt resource value: 0x7f0700a9
+			public const int MedicationButton = 2131165353;
+			
+			// aapt resource value: 0x7f0700a6
+			public const int PhoneNumber = 2131165350;
+			
+			// aapt resource value: 0x7f0700aa
+			public const int PreprocedureButton = 2131165354;
+			
+			// aapt resource value: 0x7f0700a4
+			public const int ProcedureName = 2131165348;
+			
+			// aapt resource value: 0x7f0700a8
+			public const int Schedule = 2131165352;
+			
 			// aapt resource value: 0x7f070094
 			public const int action0 = 2131165332;
 			
@@ -2368,6 +2389,9 @@ namespace Second_Aid.Droid
 			
 			// aapt resource value: 0x7f070051
 			public const int expanded_menu = 2131165265;
+			
+			// aapt resource value: 0x7f0700a3
+			public const int fakeView = 2131165347;
 			
 			// aapt resource value: 0x7f070035
 			public const int fill = 2131165237;
@@ -2537,6 +2561,9 @@ namespace Second_Aid.Droid
 			// aapt resource value: 0x7f070029
 			public const int pin = 2131165225;
 			
+			// aapt resource value: 0x7f0700a1
+			public const int preinstruction_listview = 2131165345;
+			
 			// aapt resource value: 0x7f070006
 			public const int progress_circular = 2131165190;
 			
@@ -2545,6 +2572,9 @@ namespace Second_Aid.Droid
 			
 			// aapt resource value: 0x7f070054
 			public const int radio = 2131165268;
+			
+			// aapt resource value: 0x7f0700a2
+			public const int relativeLayout1 = 2131165346;
 			
 			// aapt resource value: 0x7f070030
 			public const int right = 2131165232;
@@ -2612,8 +2642,8 @@ namespace Second_Aid.Droid
 			// aapt resource value: 0x7f070013
 			public const int showTitle = 2131165203;
 			
-			// aapt resource value: 0x7f0700a1
-			public const int sliding_tabs = 2131165345;
+			// aapt resource value: 0x7f0700ab
+			public const int sliding_tabs = 2131165355;
 			
 			// aapt resource value: 0x7f07006c
 			public const int snackbar_action = 2131165292;
@@ -2672,8 +2702,8 @@ namespace Second_Aid.Droid
 			// aapt resource value: 0x7f070048
 			public const int title_template = 2131165256;
 			
-			// aapt resource value: 0x7f0700a2
-			public const int toolbar = 2131165346;
+			// aapt resource value: 0x7f0700ac
+			public const int toolbar = 2131165356;
 			
 			// aapt resource value: 0x7f070032
 			public const int top = 2131165234;
@@ -2943,28 +2973,31 @@ namespace Second_Aid.Droid
 			public const int notification_template_part_time = 2130903093;
 			
 			// aapt resource value: 0x7f030036
-			public const int Procedures = 2130903094;
+			public const int PreInstructionLayout = 2130903094;
 			
 			// aapt resource value: 0x7f030037
-			public const int select_dialog_item_material = 2130903095;
+			public const int Procedures = 2130903095;
 			
 			// aapt resource value: 0x7f030038
-			public const int select_dialog_multichoice_material = 2130903096;
+			public const int select_dialog_item_material = 2130903096;
 			
 			// aapt resource value: 0x7f030039
-			public const int select_dialog_singlechoice_material = 2130903097;
+			public const int select_dialog_multichoice_material = 2130903097;
 			
 			// aapt resource value: 0x7f03003a
-			public const int SubProcedures = 2130903098;
+			public const int select_dialog_singlechoice_material = 2130903098;
 			
 			// aapt resource value: 0x7f03003b
-			public const int support_simple_spinner_dropdown_item = 2130903099;
+			public const int SubProcedures = 2130903099;
 			
 			// aapt resource value: 0x7f03003c
-			public const int Tabbar = 2130903100;
+			public const int support_simple_spinner_dropdown_item = 2130903100;
 			
 			// aapt resource value: 0x7f03003d
-			public const int Toolbar = 2130903101;
+			public const int Tabbar = 2130903101;
+			
+			// aapt resource value: 0x7f03003e
+			public const int Toolbar = 2130903102;
 			
 			static Layout()
 			{

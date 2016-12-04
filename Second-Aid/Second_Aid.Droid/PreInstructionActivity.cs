@@ -11,33 +11,43 @@ using Android.Views;
 using Android.Widget;
 using System.Threading.Tasks;
 using System.Net.Http;
-using Newtonsoft.Json;
 using Second_Aid.Droid.Models;
+using Newtonsoft.Json;
 
 namespace Second_Aid.Droid
 {
-    [Activity(Label = "MedicationsActivity")]
-    public class MedicationsActivity : Activity
+    [Activity(Label = "PreInstruction")]
+    public class PreInstructionActivity : Activity
     {
-        private string token;
-        public List<int> medicationId = Second_Aid.Droid.MainPageActivity.medicationId;
+        public string token;
+        public string preprocedureName;
+        public string preprocedureId;
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            SetContentView(Resource.Layout.MedicationsLayout);
+            SetContentView(Resource.Layout.PreInstructionLayout);
 
             this.token = Intent.GetStringExtra(Constants.TOKEN_KEY) ?? "No token detected.";
+            this.preprocedureName = Intent.GetStringExtra(Constants.PREPROCEDURE_KEY) ?? "No procedure name detected.";
+            this.preprocedureId = Intent.GetStringExtra(Constants.PREPROCEDUREID_KEY) ?? "No procedure id detected.";
 
-            ListView dataDisplay = FindViewById<ListView>(Resource.Id.medications_listview);
+            ListView dataDisplay = FindViewById<ListView>(Resource.Id.preinstruction_listview);
 
-            var items = await getMedications();
+            var items = await getPreInstructions();
             var adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, items);
             dataDisplay.Adapter = adapter;
+
+            dataDisplay.ItemClick += listviewClicked;
         }
 
-        private async Task<List<string>> getMedications()
+        void listviewClicked(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            
+        }
+
+        private async Task<List<string>> getPreInstructions()
         {
             using (var client = new HttpClient())
             {
@@ -45,23 +55,20 @@ namespace Second_Aid.Droid
                 // client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer ", this.token);
                 client.DefaultRequestHeaders.Add("Authorization", String.Format("Bearer {0}", this.token));
 
-                var response = await client.GetAsync(Constants.BASE_URL + Constants.MEDICATION_URL);
+                var response = await client.GetAsync(Constants.BASE_URL + Constants.PREINSTRUCTIONS_URL);
 
                 var responseString = await response.Content.ReadAsStringAsync();
 
-                var responseMArray = JsonConvert.DeserializeObject<List<Medication>>(responseString);
+                var responseMArray = JsonConvert.DeserializeObject<List<PreInstructions>>(responseString);
 
                 List<string> data = new List<string>();
-                foreach (var medication in responseMArray)
+
+                foreach (var preInstructions in responseMArray)
                 {
-                    foreach (var id in medicationId)
+                    if (preInstructions.subProcedureId.Equals(preprocedureId))
                     {
-                        if (id.ToString().Equals(medication.Id))
-                        {
-                            data.Add(medication.Name);
-                        }
+                        data.Add(preInstructions.title);
                     }
-                    
                 }
 
                 return data;

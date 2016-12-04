@@ -119,12 +119,15 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="MainPageActivity.cs" />
     <Compile Include="MedicationsActivity.cs" />
+    <Compile Include="Models\Clinic.cs" />
     <Compile Include="Models\Medication.cs" />
     <Compile Include="Models\PatientProcedures.cs" />
     <Compile Include="Models\PreInstructions.cs" />
     <Compile Include="Models\Procedure.cs" />
     <Compile Include="Models\SubProcedure.cs" />
     <Compile Include="Models\Video.cs" />
+    <Compile Include="PreInstructionActivity.cs" />
+    <Compile Include="ProcedureActivity.cs" />
     <Compile Include="SubProcedureActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -144,6 +147,9 @@
     </AndroidResource>
     <AndroidResource Include="Resources\layout\MedicationsLayout.axml" />
     <AndroidResource Include="Resources\layout\Procedures.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\PreInstructionLayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
