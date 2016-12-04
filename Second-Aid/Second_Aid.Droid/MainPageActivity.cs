@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Diagnostics;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -23,7 +23,7 @@ namespace Second_Aid.Droid
     {
         private string token;
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
@@ -58,9 +58,18 @@ namespace Second_Aid.Droid
                     StartActivity(scheduleActivityIntent);
                 }
             };
+
+
+            var items = await getProcedureID();
+            var idItems = await getProcedure(items);
+
+            var adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, idItems);
+            dataDisplay.Adapter = adapter;
+
+
         }
 
-        private async Task<List<string>> getMedications()
+        private async Task<List<string>> getProcedureID()
         {
             using (var client = new HttpClient())
             {
@@ -68,21 +77,57 @@ namespace Second_Aid.Droid
                 // client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer ", this.token);
                 client.DefaultRequestHeaders.Add("Authorization", String.Format("Bearer {0}", this.token));
 
-                var response = await client.GetAsync(Constants.BASE_URL + Constants.MEDICATION_URL);
+                var response = await client.GetAsync(Constants.BASE_URL + Constants.GETPROCEDUREID_URL);
 
                 var responseString = await response.Content.ReadAsStringAsync();
 
-                var responseMArray = JsonConvert.DeserializeObject<List<Medication>>(responseString);
+                var responseMArray = JsonConvert.DeserializeObject<List<PatientProcedures>>(responseString);
 
                 List<string> data = new List<string>();
-                foreach (var medication in responseMArray)
+                foreach (var patientProcedures in responseMArray)
                 {
-                    data.Add(medication.Name);
+                    if (!data.Contains(patientProcedures.procedureId))
+                    {
+                        data.Add(patientProcedures.procedureId);
+                    }
+                
                 }
 
                 return data; 
             }
         }
+
+        private async Task<List<string>> getProcedure(List<string> id)
+        {
+            using (var client = new HttpClient())
+            {
+                // THIS DOESN'T WORK, even when encoding token => UTF8Bytes => Base64String
+                // client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer ", this.token);
+                client.DefaultRequestHeaders.Add("Authorization", String.Format("Bearer {0}", this.token));
+
+                var response = await client.GetAsync(Constants.BASE_URL + Constants.PROCEDUREID_URL);
+
+                var responseString = await response.Content.ReadAsStringAsync();
+
+                var responseMArray = JsonConvert.DeserializeObject<List<Procedure>>(responseString);
+
+                List<string> data = new List<string>();
+                foreach (var patientProcedures in responseMArray)
+                {
+                    foreach (var checkName in id)
+                    {
+                        if (patientProcedures.procedureId.ToString().Equals(checkName))
+                        {
+                            data.Add(patientProcedures.name);
+                        }
+                    }                 
+
+                }
+
+                return data;
+            }
+        }
+
 
         public override void OnBackPressed()
         {

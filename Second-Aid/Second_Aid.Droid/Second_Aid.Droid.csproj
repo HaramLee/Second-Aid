@@ -120,6 +120,7 @@
     <Compile Include="MainPageActivity.cs" />
     <Compile Include="MedicationsActivity.cs" />
     <Compile Include="Models\Medication.cs" />
+    <Compile Include="Models\PatientProcedures.cs" />
     <Compile Include="Models\PreInstructions.cs" />
     <Compile Include="Models\Procedure.cs" />
     <Compile Include="Models\SubProcedure.cs" />
@@ -142,6 +143,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\MedicationsLayout.axml" />
+    <AndroidResource Include="Resources\layout\Procedures.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />
