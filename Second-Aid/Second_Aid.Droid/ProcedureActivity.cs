@@ -22,13 +22,13 @@ namespace Second_Aid.Droid
 
         private string procedureName;
         private string procedureId;
+        private string procedureDetail;
         private string token;
-        TextView title;
-        TextView ClinicName;
-        TextView PhoneNumber;
-        TextView DoctorName;
-        TextView Schedule;
 
+        Button medicationButton;
+        Button preprocedureButton;
+
+        private IList<string> items = new List<string>();
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -39,17 +39,20 @@ namespace Second_Aid.Droid
             this.procedureName = Intent.GetStringExtra(Constants.PROCEDURE_KEY) ?? "No Procedure Name detected.";
             this.procedureId = Intent.GetStringExtra(Constants.PROCEDUREID_KEY) ?? "No Procedure Id detected.";
             this.token = Intent.GetStringExtra(Constants.TOKEN_KEY) ?? "No token detected.";
+            this.items = Intent.GetStringArrayListExtra(Constants.MEDICATION_KEY);
+            this.procedureDetail = Intent.GetStringExtra(Constants.PROCEDUREDESC_KEY) ?? "No Procedure description detected.";
 
-            Button medicationButton = FindViewById<Button>(Resource.Id.MedicationButton);
-            Button preprocedureButton = FindViewById<Button>(Resource.Id.PreprocedureButton);
+            medicationButton = FindViewById<Button>(Resource.Id.MedicationButton);
+            preprocedureButton = FindViewById<Button>(Resource.Id.PreprocedureButton);
 
-            title = FindViewById<TextView>(Resource.Id.ProcedureName);
-            ClinicName = FindViewById<TextView>(Resource.Id.ClinicName);
-            PhoneNumber = FindViewById<TextView>(Resource.Id.PhoneNumber);
-            DoctorName = FindViewById<TextView>(Resource.Id.DoctorName);
-            Schedule = FindViewById<TextView>(Resource.Id.Schedule);
+            TextView title = FindViewById<TextView>(Resource.Id.ProcedureName);
+            
+            TextView DoctorName = FindViewById<TextView>(Resource.Id.DoctorName);
+            TextView Schedule = FindViewById<TextView>(Resource.Id.Schedule);
+            TextView Description = FindViewById<TextView>(Resource.Id.Description);
 
             title.Text = procedureName;
+            Description.Text = procedureDetail;
 
             getClinic();
 
@@ -59,18 +62,19 @@ namespace Second_Aid.Droid
 
                 Intent medicationActivityIntent = new Intent(this, typeof(MedicationsActivity));
                 medicationActivityIntent.PutExtra(Constants.TOKEN_KEY, token);
+                medicationActivityIntent.PutStringArrayListExtra(Constants.MEDICATION_KEY, items);
                 StartActivity(medicationActivityIntent);
 
             };
 
             //preprocedure button click action
             preprocedureButton.Click += (object sender, EventArgs e) => {
-        
+
                 Intent preprocedureActivityIntent = new Intent(this, typeof(SubProcedureActivity));
                 preprocedureActivityIntent.PutExtra(Constants.TOKEN_KEY, token);
                 preprocedureActivityIntent.PutExtra(Constants.PROCEDUREID_KEY, procedureId);
                 StartActivity(preprocedureActivityIntent);
-     
+
             };
 
         }
@@ -88,9 +92,11 @@ namespace Second_Aid.Droid
 
                 var responseMArray = JsonConvert.DeserializeObject<List<Clinic>>(responseString);
 
+                TextView ClinicName = FindViewById<TextView>(Resource.Id.ClinicName);
+                TextView PhoneNumber = FindViewById<TextView>(Resource.Id.PhoneNumber);
+
                 ClinicName.Text = responseMArray[0].clinicAddress;
                 PhoneNumber.Text = responseMArray[0].phoneNumber;
-
 
             }
         }

@@ -50,7 +50,7 @@ namespace Second_Aid.Droid
 
             procedureActivityIntent.PutExtra(Constants.PREPROCEDURE_KEY, items[e.Position]);
             procedureActivityIntent.PutExtra(Constants.PREPROCEDUREID_KEY, subProcedureId[e.Position]);
-            Console.WriteLine("this is subProcedureId " + subProcedureId[e.Position]);
+
             procedureActivityIntent.PutExtra(Constants.TOKEN_KEY, token);
 
             StartActivity(procedureActivityIntent);
@@ -72,11 +72,11 @@ namespace Second_Aid.Droid
                 List<string> data = new List<string>();
                 foreach (var subProcedure in responseMArray)
                 {
-                
+
                     if (subProcedure.procedureId.ToString().Equals(procedureId))
                     {
                         data.Add(subProcedure.name);
-                
+
                         subProcedureId.Add(subProcedure.subProcedureId.ToString());
                     }
                 }

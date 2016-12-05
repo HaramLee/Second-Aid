@@ -2216,26 +2216,29 @@ namespace Second_Aid.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0700a3
-			public const int ClinicName = 2131165347;
+			// aapt resource value: 0x7f0700a2
+			public const int ClinicName = 2131165346;
 			
-			// aapt resource value: 0x7f0700a5
-			public const int DoctorName = 2131165349;
+			// aapt resource value: 0x7f0700a6
+			public const int Description = 2131165350;
+			
+			// aapt resource value: 0x7f0700a4
+			public const int DoctorName = 2131165348;
 			
 			// aapt resource value: 0x7f0700a7
 			public const int MedicationButton = 2131165351;
 			
-			// aapt resource value: 0x7f0700a4
-			public const int PhoneNumber = 2131165348;
+			// aapt resource value: 0x7f0700a3
+			public const int PhoneNumber = 2131165347;
 			
 			// aapt resource value: 0x7f0700a8
 			public const int PreprocedureButton = 2131165352;
 			
-			// aapt resource value: 0x7f0700a2
-			public const int ProcedureName = 2131165346;
+			// aapt resource value: 0x7f0700a1
+			public const int ProcedureName = 2131165345;
 			
-			// aapt resource value: 0x7f0700a6
-			public const int Schedule = 2131165350;
+			// aapt resource value: 0x7f0700a5
+			public const int Schedule = 2131165349;
 			
 			// aapt resource value: 0x7f070092
 			public const int action0 = 2131165330;
@@ -2390,8 +2393,8 @@ namespace Second_Aid.Droid
 			// aapt resource value: 0x7f070051
 			public const int expanded_menu = 2131165265;
 			
-			// aapt resource value: 0x7f0700a1
-			public const int fakeView = 2131165345;
+			// aapt resource value: 0x7f0700a0
+			public const int fakeView = 2131165344;
 			
 			// aapt resource value: 0x7f070035
 			public const int fill = 2131165237;
@@ -2569,9 +2572,6 @@ namespace Second_Aid.Droid
 			
 			// aapt resource value: 0x7f070054
 			public const int radio = 2131165268;
-			
-			// aapt resource value: 0x7f0700a0
-			public const int relativeLayout1 = 2131165344;
 			
 			// aapt resource value: 0x7f070030
 			public const int right = 2131165232;

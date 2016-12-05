@@ -24,10 +24,8 @@ namespace Second_Aid.Droid
         private string token;
         private List<string> items = new List<string>();
         private List<string> idItems = new List<string>();
-
-        private Dictionary<int, string> Pairs = new Dictionary<int, string>();
-
-        internal static List<int> medicationId = new List<int>();
+        private List<string> idDescription = new List<string>();
+        private List<string> medicationId = new List<string>();
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
@@ -60,13 +58,15 @@ namespace Second_Aid.Droid
 
         void listviewClicked(object sender, AdapterView.ItemClickEventArgs e)
         {
-            Intent procedureActivityIntent = new Intent(this, typeof(ProcedureActivity));
+            Intent proceduresActivityIntent = new Intent(this, typeof(ProcedureActivity));
 
-            procedureActivityIntent.PutExtra(Constants.PROCEDURE_KEY, idItems[e.Position]);
-            procedureActivityIntent.PutExtra(Constants.PROCEDUREID_KEY, items[e.Position]);
-            procedureActivityIntent.PutExtra(Constants.TOKEN_KEY, token);
+            proceduresActivityIntent.PutExtra(Constants.PROCEDURE_KEY, idItems[e.Position]);
+            proceduresActivityIntent.PutExtra(Constants.PROCEDUREID_KEY, items[e.Position]);
+            proceduresActivityIntent.PutExtra(Constants.PROCEDUREDESC_KEY, idDescription[e.Position]);
+            proceduresActivityIntent.PutStringArrayListExtra(Constants.MEDICATION_KEY, medicationId);
+            proceduresActivityIntent.PutExtra(Constants.TOKEN_KEY, token);
 
-            StartActivity(procedureActivityIntent);
+            StartActivity(proceduresActivityIntent);
         }
 
         private async Task<List<string>> getProcedureID()
@@ -90,12 +90,16 @@ namespace Second_Aid.Droid
                     if (!data.Contains(patientProcedures.procedureId))
                     {
                         data.Add(patientProcedures.procedureId);
-                        medicationId.Add(patientProcedures.MedicationId);
+
+                        if (!medicationId.Contains(patientProcedures.MedicationId.ToString()))
+                        {
+                            medicationId.Add(patientProcedures.MedicationId.ToString());
+                        }
                     }
-                
+
                 }
 
-                return data; 
+                return data;
             }
         }
 
@@ -121,8 +125,9 @@ namespace Second_Aid.Droid
                         if (patientProcedures.procedureId.ToString().Equals(checkName))
                         {
                             data.Add(patientProcedures.name);
+                            idDescription.Add(patientProcedures.description);
                         }
-                    }                 
+                    }
 
                 }
 

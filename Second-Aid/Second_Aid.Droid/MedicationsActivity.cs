@@ -20,7 +20,8 @@ namespace Second_Aid.Droid
     public class MedicationsActivity : Activity
     {
         private string token;
-        public List<int> medicationId = Second_Aid.Droid.MainPageActivity.medicationId;
+        private IList<string> medicationId = new List<string>();
+        private List<string> items = new List<string>();
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
@@ -29,19 +30,22 @@ namespace Second_Aid.Droid
             SetContentView(Resource.Layout.MedicationsLayout);
 
             this.token = Intent.GetStringExtra(Constants.TOKEN_KEY) ?? "No token detected.";
+            this.medicationId = Intent.GetStringArrayListExtra(Constants.MEDICATION_KEY);
 
             ListView dataDisplay = FindViewById<ListView>(Resource.Id.medications_listview);
 
-            var items = await getMedications();
+            items = await getMedications();
+
             var adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, items);
             dataDisplay.Adapter = adapter;
+
         }
 
         private async Task<List<string>> getMedications()
         {
             using (var client = new HttpClient())
             {
-     
+
                 client.DefaultRequestHeaders.Add("Authorization", String.Format("Bearer {0}", this.token));
 
                 var response = await client.GetAsync(Constants.BASE_URL + Constants.MEDICATION_URL);
@@ -57,10 +61,11 @@ namespace Second_Aid.Droid
                     {
                         if (id.ToString().Equals(medication.Id))
                         {
+
                             data.Add(medication.Name);
                         }
                     }
-                    
+
                 }
 
                 return data;

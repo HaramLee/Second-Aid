@@ -15,10 +15,12 @@ namespace Second_Aid.Droid
     public class Constants
     {
         public const string TOKEN_KEY = "token_key";
+        public const string MEDICATION_KEY = "medication_key";
         public const string PROCEDURE_KEY = "procedure_key";
         public const string PROCEDUREID_KEY = "procedureId_key";
         public const string PREPROCEDURE_KEY = "preprocedure_key";
         public const string PREPROCEDUREID_KEY = "preprocedureId_key";
+        public const string PROCEDUREDESC_KEY = "preproceduredesc_key";
 
         public const string BASE_URL = "http://secondaid.azurewebsites.net";
         public const string LOGIN_URL = "/connect/token";
