@@ -22,6 +22,7 @@ namespace Second_Aid.Droid
         public string token;
         public string preprocedureName;
         public string preprocedureId;
+        private string subprocedureDetail;
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
@@ -30,10 +31,15 @@ namespace Second_Aid.Droid
             SetContentView(Resource.Layout.PreInstructionLayout);
 
             this.token = Intent.GetStringExtra(Constants.TOKEN_KEY) ?? "No token detected.";
-            this.preprocedureName = Intent.GetStringExtra(Constants.PREPROCEDURE_KEY) ?? "No procedure name detected.";
-            this.preprocedureId = Intent.GetStringExtra(Constants.PREPROCEDUREID_KEY) ?? "No procedure id detected.";
+            this.preprocedureName = Intent.GetStringExtra(Constants.PREPROCEDURE_KEY) ?? "No sub procedure name detected.";
+            this.preprocedureId = Intent.GetStringExtra(Constants.PREPROCEDUREID_KEY) ?? "No sub procedure id detected.";
+            this.subprocedureDetail = Intent.GetStringExtra(Constants.PREPROCEDUREDESC_KEY) ?? "no sub procedure description detected.";
+
 
             ListView dataDisplay = FindViewById<ListView>(Resource.Id.preinstruction_listview);
+            TextView description = FindViewById<TextView>(Resource.Id.Description);
+
+            description.Text = subprocedureDetail;
 
             var items = await getPreInstructions();
             var adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, items);

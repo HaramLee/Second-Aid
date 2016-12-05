@@ -23,6 +23,7 @@ namespace Second_Aid.Droid
         public string procedureId;
         private List<string> items = new List<string>();
         private List<string> subProcedureId = new List<string>();
+        private List<string> subProcedureDesc = new List<string>();
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
@@ -50,7 +51,7 @@ namespace Second_Aid.Droid
 
             procedureActivityIntent.PutExtra(Constants.PREPROCEDURE_KEY, items[e.Position]);
             procedureActivityIntent.PutExtra(Constants.PREPROCEDUREID_KEY, subProcedureId[e.Position]);
-
+            procedureActivityIntent.PutExtra(Constants.PREPROCEDUREDESC_KEY, subProcedureDesc[e.Position]);
             procedureActivityIntent.PutExtra(Constants.TOKEN_KEY, token);
 
             StartActivity(procedureActivityIntent);
@@ -76,7 +77,7 @@ namespace Second_Aid.Droid
                     if (subProcedure.procedureId.ToString().Equals(procedureId))
                     {
                         data.Add(subProcedure.name);
-
+                        subProcedureDesc.Add(subProcedure.description);
                         subProcedureId.Add(subProcedure.subProcedureId.ToString());
                     }
                 }

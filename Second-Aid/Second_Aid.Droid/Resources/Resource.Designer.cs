@@ -2216,29 +2216,29 @@ namespace Second_Aid.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0700a2
-			public const int ClinicName = 2131165346;
-			
 			// aapt resource value: 0x7f0700a6
-			public const int Description = 2131165350;
+			public const int ClinicName = 2131165350;
 			
-			// aapt resource value: 0x7f0700a4
-			public const int DoctorName = 2131165348;
-			
-			// aapt resource value: 0x7f0700a7
-			public const int MedicationButton = 2131165351;
-			
-			// aapt resource value: 0x7f0700a3
-			public const int PhoneNumber = 2131165347;
+			// aapt resource value: 0x7f0700aa
+			public const int Description = 2131165354;
 			
 			// aapt resource value: 0x7f0700a8
-			public const int PreprocedureButton = 2131165352;
+			public const int DoctorName = 2131165352;
 			
-			// aapt resource value: 0x7f0700a1
-			public const int ProcedureName = 2131165345;
+			// aapt resource value: 0x7f0700ab
+			public const int MedicationButton = 2131165355;
+			
+			// aapt resource value: 0x7f0700a7
+			public const int PhoneNumber = 2131165351;
+			
+			// aapt resource value: 0x7f0700ac
+			public const int PreprocedureButton = 2131165356;
 			
 			// aapt resource value: 0x7f0700a5
-			public const int Schedule = 2131165349;
+			public const int ProcedureName = 2131165349;
+			
+			// aapt resource value: 0x7f0700a9
+			public const int Schedule = 2131165353;
 			
 			// aapt resource value: 0x7f070092
 			public const int action0 = 2131165330;
@@ -2351,6 +2351,9 @@ namespace Second_Aid.Droid
 			// aapt resource value: 0x7f070040
 			public const int default_activity_button = 2131165248;
 			
+			// aapt resource value: 0x7f0700a1
+			public const int desc = 2131165345;
+			
 			// aapt resource value: 0x7f07006a
 			public const int design_bottom_sheet = 2131165290;
 			
@@ -2393,8 +2396,8 @@ namespace Second_Aid.Droid
 			// aapt resource value: 0x7f070051
 			public const int expanded_menu = 2131165265;
 			
-			// aapt resource value: 0x7f0700a0
-			public const int fakeView = 2131165344;
+			// aapt resource value: 0x7f0700a4
+			public const int fakeView = 2131165348;
 			
 			// aapt resource value: 0x7f070035
 			public const int fill = 2131165237;
@@ -2561,8 +2564,8 @@ namespace Second_Aid.Droid
 			// aapt resource value: 0x7f070029
 			public const int pin = 2131165225;
 			
-			// aapt resource value: 0x7f07009f
-			public const int preinstruction_listview = 2131165343;
+			// aapt resource value: 0x7f0700a3
+			public const int preinstruction_listview = 2131165347;
 			
 			// aapt resource value: 0x7f070006
 			public const int progress_circular = 2131165190;
@@ -2639,8 +2642,8 @@ namespace Second_Aid.Droid
 			// aapt resource value: 0x7f070013
 			public const int showTitle = 2131165203;
 			
-			// aapt resource value: 0x7f0700a9
-			public const int sliding_tabs = 2131165353;
+			// aapt resource value: 0x7f0700ad
+			public const int sliding_tabs = 2131165357;
 			
 			// aapt resource value: 0x7f07006c
 			public const int snackbar_action = 2131165292;
@@ -2672,11 +2675,20 @@ namespace Second_Aid.Droid
 			// aapt resource value: 0x7f070094
 			public const int status_bar_latest_event_content = 2131165332;
 			
+			// aapt resource value: 0x7f0700a2
+			public const int subdescription = 2131165346;
+			
 			// aapt resource value: 0x7f070065
 			public const int submit_area = 2131165285;
 			
 			// aapt resource value: 0x7f07000d
 			public const int tabMode = 2131165197;
+			
+			// aapt resource value: 0x7f07009f
+			public const int tableLayout1 = 2131165343;
+			
+			// aapt resource value: 0x7f0700a0
+			public const int tableRow1 = 2131165344;
 			
 			// aapt resource value: 0x7f07009c
 			public const int text = 2131165340;
@@ -2696,8 +2708,8 @@ namespace Second_Aid.Droid
 			// aapt resource value: 0x7f070048
 			public const int title_template = 2131165256;
 			
-			// aapt resource value: 0x7f0700aa
-			public const int toolbar = 2131165354;
+			// aapt resource value: 0x7f0700ae
+			public const int toolbar = 2131165358;
 			
 			// aapt resource value: 0x7f070032
 			public const int top = 2131165234;
