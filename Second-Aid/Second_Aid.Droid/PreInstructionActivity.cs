@@ -37,7 +37,7 @@ namespace Second_Aid.Droid
 
 
             ListView dataDisplay = FindViewById<ListView>(Resource.Id.preinstruction_listview);
-            TextView description = FindViewById<TextView>(Resource.Id.Description);
+            TextView description = FindViewById<TextView>(Resource.Id.subdescription);
 
             description.Text = subprocedureDetail;
 

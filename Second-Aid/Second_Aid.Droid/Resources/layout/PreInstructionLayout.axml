@@ -40,6 +40,19 @@
                 android:textColor="#333639"
                 android:id="@+id/subdescription" />
         </TableRow>
+        <TableRow
+            android:id="@+id/tableRow2">
+            <TextView
+                android:text="List of Instructions"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_column="1"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:textColor="#333639"
+                android:id="@+id/listTitle" />
+        </TableRow>
     </TableLayout>
     <ListView
         android:minWidth="25px"
