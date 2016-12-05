@@ -31,6 +31,7 @@ namespace Second_Aid.Droid
         public const string GETPROCEDUREID_URL = "/api/PatientProcedures";
         public const string PROCEDUREID_URL = "/api/Procedures";
         public const string CLINIC_URL = "/api/Clinics";
+        public const string SCHEDULE_URL = "/api/Schedules";
 
     }
 }

@@ -87,9 +87,9 @@ namespace Second_Aid.Droid
                 foreach (var patientProcedures in responseMArray)
                 {
 
-                    if (!data.Contains(patientProcedures.procedureId))
+                    if (!data.Contains(patientProcedures.procedureId.ToString()))
                     {
-                        data.Add(patientProcedures.procedureId);
+                        data.Add(patientProcedures.procedureId.ToString());
 
                         if (!medicationId.Contains(patientProcedures.MedicationId.ToString()))
                         {

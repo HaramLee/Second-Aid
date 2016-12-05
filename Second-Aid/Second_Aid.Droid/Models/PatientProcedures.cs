@@ -16,10 +16,10 @@ namespace Second_Aid.Droid.Models
     class PatientProcedures
     {
         [JsonProperty("patientProcedureId")]
-        public string patientProcedureId { get; set; }
+        public int patientProcedureId { get; set; }
 
         [JsonProperty("procedureId")]
-        public string procedureId { get; set; }
+        public int procedureId { get; set; }
 
         [JsonProperty("patientId")]
         public string PatientId { get; set; }

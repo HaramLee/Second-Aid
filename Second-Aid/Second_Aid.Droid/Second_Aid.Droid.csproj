@@ -124,6 +124,7 @@
     <Compile Include="Models\PatientProcedures.cs" />
     <Compile Include="Models\PreInstructions.cs" />
     <Compile Include="Models\Procedure.cs" />
+    <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\SubProcedure.cs" />
     <Compile Include="Models\Video.cs" />
     <Compile Include="PreInstructionActivity.cs" />

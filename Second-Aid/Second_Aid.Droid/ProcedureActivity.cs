@@ -29,6 +29,7 @@ namespace Second_Aid.Droid
         Button preprocedureButton;
 
         private IList<string> items = new List<string>();
+        private Schedule schedule;    // A schedule is one event, binded to a patient and a procedure.
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -77,6 +78,7 @@ namespace Second_Aid.Droid
 
             };
 
+            getSchedule();
         }
 
         private async void getClinic()
@@ -97,6 +99,45 @@ namespace Second_Aid.Droid
 
                 ClinicName.Text = responseMArray[0].clinicAddress;
                 PhoneNumber.Text = responseMArray[0].phoneNumber;
+
+            }
+        }
+
+        private async void getSchedule()
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Add("Authorization", String.Format("Bearer {0}", this.token));
+
+                var response = await client.GetAsync(Constants.BASE_URL + Constants.SCHEDULE_URL);
+
+                var responseString = await response.Content.ReadAsStringAsync();
+
+                var responseMArray = JsonConvert.DeserializeObject<List<Schedule>>(responseString);
+
+                foreach (Schedule s in responseMArray)
+                {
+                    if (s.procedureId.ToString() == this.procedureId)
+                    {
+                        this.schedule = s;
+                        break;
+                    }
+                }                
+
+                if (this.schedule != null && this.schedule.isCompleted)
+                {
+                    medicationButton.Visibility = ViewStates.Visible;
+                    preprocedureButton.Visibility = ViewStates.Visible;
+                }
+                else if (this.schedule != null && !this.schedule.isCompleted)
+                {
+                    medicationButton.Visibility = ViewStates.Gone;
+                    preprocedureButton.Visibility = ViewStates.Gone;
+                }
+                else
+                {
+                    Console.Write("Theres no schedule bound to this procedure!");
+                }
 
             }
         }
