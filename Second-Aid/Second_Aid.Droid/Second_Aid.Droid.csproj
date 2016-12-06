@@ -126,14 +126,17 @@
     <Compile Include="Models\PatientProcedures.cs" />
     <Compile Include="Models\PreInstructions.cs" />
     <Compile Include="Models\Procedure.cs" />
+    <Compile Include="Models\Question.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\SubProcedure.cs" />
+    <Compile Include="Models\Survey.cs" />
     <Compile Include="Models\Video.cs" />
     <Compile Include="PreInstructionActivity.cs" />
     <Compile Include="ProcedureActivity.cs" />
     <Compile Include="SubProcedureActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SurveyActivity.cs" />
     <Compile Include="VideoActivity.cs" />
     <Compile Include="YouTubeFailureRecoveryActivity.cs" />
   </ItemGroup>
@@ -161,6 +164,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\MedicationInstructionLayout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\SurveyLayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

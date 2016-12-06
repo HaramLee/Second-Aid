@@ -106,4 +106,11 @@
         android:padding="16dp"
         android:layout_marginTop="16dp"
         android:text="Pre-Instruction" />
+    <Button
+        android:id="@+id/surveyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/MedicationButton"
+        android:padding="16dp"
+        android:text="Survey" />
 </RelativeLayout>

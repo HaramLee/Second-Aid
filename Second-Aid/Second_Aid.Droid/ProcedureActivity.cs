@@ -27,6 +27,7 @@ namespace Second_Aid.Droid
 
         Button medicationButton;
         Button preprocedureButton;
+        Button surveyButton;
 
         private IList<string> items = new List<string>();
         private Schedule schedule;    // A schedule is one event, binded to a patient and a procedure.
@@ -52,6 +53,8 @@ namespace Second_Aid.Droid
             TextView Schedule = FindViewById<TextView>(Resource.Id.Schedule);
             TextView Description = FindViewById<TextView>(Resource.Id.Description);
 
+            surveyButton = FindViewById<Button>(Resource.Id.surveyButton);
+
             title.Text = procedureName;
             Description.Text = "Description: " + procedureDetail;
 
@@ -72,6 +75,15 @@ namespace Second_Aid.Droid
             preprocedureButton.Click += (object sender, EventArgs e) => {
 
                 Intent preprocedureActivityIntent = new Intent(this, typeof(SubProcedureActivity));
+                preprocedureActivityIntent.PutExtra(Constants.TOKEN_KEY, token);
+                preprocedureActivityIntent.PutExtra(Constants.PROCEDUREID_KEY, procedureId);
+                StartActivity(preprocedureActivityIntent);
+
+            };
+
+            surveyButton.Click += (object sender, EventArgs e) => {
+
+                Intent preprocedureActivityIntent = new Intent(this, typeof(SurveyActivity));
                 preprocedureActivityIntent.PutExtra(Constants.TOKEN_KEY, token);
                 preprocedureActivityIntent.PutExtra(Constants.PROCEDUREID_KEY, procedureId);
                 StartActivity(preprocedureActivityIntent);

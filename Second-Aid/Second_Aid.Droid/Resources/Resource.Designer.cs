@@ -2240,11 +2240,11 @@ namespace Second_Aid.Droid
 			// aapt resource value: 0x7f0700ac
 			public const int Schedule = 2131165356;
 			
-			// aapt resource value: 0x7f0700b4
-			public const int VideoDescription = 2131165364;
+			// aapt resource value: 0x7f0700b6
+			public const int VideoDescription = 2131165366;
 			
-			// aapt resource value: 0x7f0700b3
-			public const int VideoName = 2131165363;
+			// aapt resource value: 0x7f0700b5
+			public const int VideoName = 2131165365;
 			
 			// aapt resource value: 0x7f070095
 			public const int action0 = 2131165333;
@@ -2450,8 +2450,8 @@ namespace Second_Aid.Droid
 			// aapt resource value: 0x7f07000b
 			public const int listMode = 2131165195;
 			
-			// aapt resource value: 0x7f0700b0
-			public const int listTitle = 2131165360;
+			// aapt resource value: 0x7f0700b1
+			public const int listTitle = 2131165361;
 			
 			// aapt resource value: 0x7f0700a5
 			public const int listTitleInstructions = 2131165349;
@@ -2663,8 +2663,8 @@ namespace Second_Aid.Droid
 			// aapt resource value: 0x7f070013
 			public const int showTitle = 2131165203;
 			
-			// aapt resource value: 0x7f0700b1
-			public const int sliding_tabs = 2131165361;
+			// aapt resource value: 0x7f0700b3
+			public const int sliding_tabs = 2131165363;
 			
 			// aapt resource value: 0x7f07006c
 			public const int snackbar_action = 2131165292;
@@ -2702,6 +2702,12 @@ namespace Second_Aid.Droid
 			// aapt resource value: 0x7f070065
 			public const int submit_area = 2131165285;
 			
+			// aapt resource value: 0x7f0700b0
+			public const int surveyButton = 2131165360;
+			
+			// aapt resource value: 0x7f0700b2
+			public const int survey_listview = 2131165362;
+			
 			// aapt resource value: 0x7f07000d
 			public const int tabMode = 2131165197;
 			
@@ -2723,8 +2729,8 @@ namespace Second_Aid.Droid
 			// aapt resource value: 0x7f070048
 			public const int title_template = 2131165256;
 			
-			// aapt resource value: 0x7f0700b2
-			public const int toolbar = 2131165362;
+			// aapt resource value: 0x7f0700b4
+			public const int toolbar = 2131165364;
 			
 			// aapt resource value: 0x7f070032
 			public const int top = 2131165234;
@@ -2759,8 +2765,8 @@ namespace Second_Aid.Droid
 			// aapt resource value: 0x7f070015
 			public const int wrap_content = 2131165205;
 			
-			// aapt resource value: 0x7f0700b5
-			public const int youtube_view = 2131165365;
+			// aapt resource value: 0x7f0700b7
+			public const int youtube_view = 2131165367;
 			
 			static Id()
 			{
@@ -3024,13 +3030,16 @@ namespace Second_Aid.Droid
 			public const int support_simple_spinner_dropdown_item = 2130903101;
 			
 			// aapt resource value: 0x7f03003e
-			public const int Tabbar = 2130903102;
+			public const int SurveyLayout = 2130903102;
 			
 			// aapt resource value: 0x7f03003f
-			public const int Toolbar = 2130903103;
+			public const int Tabbar = 2130903103;
 			
 			// aapt resource value: 0x7f030040
-			public const int VideoLayout = 2130903104;
+			public const int Toolbar = 2130903104;
+			
+			// aapt resource value: 0x7f030041
+			public const int VideoLayout = 2130903105;
 			
 			static Layout()
 			{
