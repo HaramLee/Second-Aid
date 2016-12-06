@@ -78,7 +78,7 @@ namespace Second_Aid.Droid
 
             };
 
-            //getSchedule();
+            getSchedule();
         }
 
         private async void getClinic()
