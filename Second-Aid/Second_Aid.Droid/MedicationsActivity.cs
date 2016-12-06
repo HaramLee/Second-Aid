@@ -22,6 +22,8 @@ namespace Second_Aid.Droid
         private string token;
         private IList<string> medicationId = new List<string>();
         private List<string> items = new List<string>();
+        private List<string> itemID = new List<string>();
+        private List<string> itemDesc = new List<string>();
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
@@ -38,7 +40,18 @@ namespace Second_Aid.Droid
 
             var adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, items);
             dataDisplay.Adapter = adapter;
+            dataDisplay.ItemClick += listviewClicked;
 
+        }
+
+        void listviewClicked(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            Intent medicationInstructionActivityIntent = new Intent(this, typeof(MedicationInstructionActivity));
+            medicationInstructionActivityIntent.PutExtra(Constants.TOKEN_KEY, token);
+            medicationInstructionActivityIntent.PutExtra(Constants.MEDICATION_KEY, items[e.Position]);
+            medicationInstructionActivityIntent.PutExtra(Constants.MEDICATIONID_KEY, itemID[e.Position]);
+            medicationInstructionActivityIntent.PutExtra(Constants.MEDICATIONDESC_KEY, itemDesc[e.Position]);
+            StartActivity(medicationInstructionActivityIntent);
         }
 
         private async Task<List<string>> getMedications()
@@ -63,6 +76,8 @@ namespace Second_Aid.Droid
                         {
 
                             data.Add(medication.Name);
+                            itemID.Add(medication.Id);
+                            itemDesc.Add(medication.Description);
                         }
                     }
 

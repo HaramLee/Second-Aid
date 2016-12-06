@@ -53,7 +53,7 @@ namespace Second_Aid.Droid
             TextView Description = FindViewById<TextView>(Resource.Id.Description);
 
             title.Text = procedureName;
-            Description.Text = procedureDetail;
+            Description.Text = "Description: " + procedureDetail;
 
             getClinic();
 
@@ -78,7 +78,7 @@ namespace Second_Aid.Droid
 
             };
 
-            getSchedule();
+            //getSchedule();
         }
 
         private async void getClinic()

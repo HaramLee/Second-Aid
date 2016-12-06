@@ -38,8 +38,7 @@ namespace Second_Aid.Droid
             login.Click += async (object sender, EventArgs e) => {
                 var username = usernameInput.Text.ToString();
                 var password = passwordInput.Text.ToString();
-                var clinicId = clinicIdInput.Text.ToString();
-                Android.Widget.Toast.MakeText(this, "Login Button Clicked with credentials " + username + password, Android.Widget.ToastLength.Short).Show();
+                var clinicId = clinicIdInput.Text.ToString();              
 
                 var token = await Login(Constants.BASE_URL + Constants.LOGIN_URL, username, password, clinicId);
 

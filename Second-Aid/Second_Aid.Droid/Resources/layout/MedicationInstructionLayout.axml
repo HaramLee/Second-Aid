@@ -7,11 +7,11 @@
     android:minWidth="25px"
     android:minHeight="25px">
     <TextView
-        android:id="@+id/desc"
+        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#F8EFF8F3"
-        android:hint="SubProcedure Name"
+        android:hint="Medication Name"
         android:gravity="center"
         android:layout_marginTop="16dp"
         android:textColor="#333639"
@@ -19,7 +19,7 @@
         android:padding="16dp"
         android:layout_marginBottom="16dp" />
     <TextView
-        android:id="@+id/subdescription"
+        android:id="@+id/medDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -29,7 +29,7 @@
         android:textColorHint="#333639"
         android:padding="16dp" />
     <TextView
-        android:text="List of Video"
+        android:text="List of Medication Instruction"
         android:textStyle="bold|italic"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
@@ -43,22 +43,5 @@
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/video_listview" />
-    <TextView
-        android:text="List of Instructions"
-        android:textStyle="bold|italic"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginBottom="8dp"
-        android:textColor="#F8EFF8F3"
-        android:id="@+id/listTitleInstructions" />
-    <ListView
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/preinstruction_listview" />
+        android:id="@+id/medicationInstruction_listview" />
 </LinearLayout>

@@ -17,6 +17,7 @@
         android:background="#F8EFF8F3"
         android:hint="Procedure Name"
         android:gravity="center"
+        android:layout_marginTop="16dp"
         android:textColor="#333639"
         android:textColorHint="#333639"
         android:padding="16dp"

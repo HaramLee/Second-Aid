@@ -34,7 +34,6 @@ namespace Second_Aid.Droid
             SetContentView(Resource.Layout.MainPageLayout);
 
             this.token = Intent.GetStringExtra(Constants.TOKEN_KEY) ?? "No token detected.";
-            Android.Widget.Toast.MakeText(this, this.token, Android.Widget.ToastLength.Short).Show();
 
             ListView dataDisplay = FindViewById<ListView>(Resource.Id.data_listview);
 
