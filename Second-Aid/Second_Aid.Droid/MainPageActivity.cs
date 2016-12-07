@@ -46,7 +46,9 @@ namespace Second_Aid.Droid
             idItems = await getProcedureID();
             items = await getProcedure(idItems);
 
-            var adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, items);
+            //var adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, items);
+            CustomListViewAdapter adapter = new CustomListViewAdapter(this, items);
+
             dataDisplay.Adapter = adapter;
 
             dataDisplay.ItemClick += listviewClicked;
