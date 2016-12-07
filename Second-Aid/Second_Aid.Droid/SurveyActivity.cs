@@ -38,7 +38,7 @@ namespace Second_Aid.Droid
             ListView dataDisplay = FindViewById<ListView>(Resource.Id.survey_listview);
 
             items = await getSubProcedures();
-            surveyItem = await getSurvey();
+           // surveyItem = await getSurvey();
             questionItems = await getQuestions();
 
             var adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, surveyItem);
@@ -54,9 +54,17 @@ namespace Second_Aid.Droid
 
             questionsActivityIntent.PutExtra(Constants.TOKEN_KEY, token);
             questionsActivityIntent.PutExtra(Constants.QUESTION_KEY, surveyItem[e.Position]);
+            var x = surveyItem[e.Position];
+            Console.WriteLine("SurveyItem " + x);
+            
+            var tmp = questionItems[x].ToList();
+            foreach(var t in tmp)
+            {
+                questionsToSend.Add(t.questionBody);
+            }
             questionsActivityIntent.PutStringArrayListExtra(Constants.QUESTIONNAIRE_QUESTIONS_KEY, questionsToSend);
             //Toast.MakeText(this, questionsToSend.First(), ToastLength.Long).Show();
-            //StartActivity(questionsActivityIntent);
+            StartActivity(questionsActivityIntent);
         }
 
         private async Task<Dictionary<string, Question[]>> getQuestions()
@@ -68,19 +76,17 @@ namespace Second_Aid.Droid
                 var response = await client.GetAsync(Constants.BASE_URL + Constants.QUESIONNAIRE_URL);
 
                 var responseString = await response.Content.ReadAsStringAsync();
-                Console.WriteLine(responseString);
                 var responseMArray = JsonConvert.DeserializeObject<List<Survey>>(responseString);
                 Dictionary<string, Question[]> data = new Dictionary<string, Question[]>();
-                Dictionary<string, List<Question>> tmpdata = new Dictionary<string, List<Question>>();
-                List<Question> tmp = new List<Question>();
                 foreach(var surveyResult in responseMArray)
                 {
                     foreach (var subID in items)
                     {
                         if (surveyResult.subProcedureId.ToString().Equals(subID))
                         {
-                            //data.Add(surveyResult.name, surveyResult.questions);
-                            
+                            data.Add(surveyResult.name, surveyResult.questions);
+                            Console.WriteLine("Adding " + surveyResult.name);
+                            surveyItem.Add(surveyResult.name);
                         }
                     }
                 }
@@ -93,14 +99,6 @@ namespace Second_Aid.Droid
                     Console.WriteLine(q.questionBody);
                 }*/
                 return data;
-            }
-        }
-
-        private void fuckingPrint(Dictionary<string, Question[]> data)
-        {
-            foreach (var x in data["Relaxing the pain"])
-            {
-                Console.WriteLine(x.questionBody);
             }
         }
 
@@ -127,7 +125,6 @@ namespace Second_Aid.Droid
                         if (surveyList.subProcedureId.ToString().Equals(subID))
                         {
                             data.Add(surveyList.name);
-                            questionItems.Add(surveyList.name, surveyList.questions);
                         }
                     }
 

@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 	<uses-sdk android:minSdkVersion="15" />
-	<application android:label="Second_Aid.Droid" android:theme="@style/Base.Theme.AppCompat"></application>
+	<application android:label="Second_Aid.Droid" android:theme="@style/Base.Theme.AppCompat">
+    <activity android:name="QuestionsActivity" android:windowSoftInputMode="adjustPan"></activity>
+  </application>
 </manifest>

@@ -11,20 +11,20 @@ using Android.Views;
 using Android.Widget;
 using Java.Lang;
 using Second_Aid.Droid.Models;
+using System.Timers;
 
 namespace Second_Aid.Droid
 {
     public class QuestionAdapter: BaseAdapter
     {
         Activity _activity;
-        List<Question> questionList;
         List<string> questions;
 
         public QuestionAdapter(Activity activity, List<string> q)
         {
             _activity = activity;
             this.questions = q;
-
+            var tmp = questions;
         }
 
 
@@ -37,26 +37,28 @@ namespace Second_Aid.Droid
             }
         }
 
+
         public override Java.Lang.Object GetItem(int position)
         {
-            throw new NotImplementedException();
+            return questions[position];
         }
 
         public override long GetItemId(int position)
         {
-            throw new NotImplementedException();
+            return position;
         }
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            //throw new NotImplementedException();
             var view = convertView ?? _activity.LayoutInflater.Inflate(
                 Resource.Layout.QuestionRow, parent, false);
             var questionTitle = view.FindViewById<TextView>(Resource.Id.Header);
             var questionAnswer = view.FindViewById<EditText>(Resource.Id.Input);
             questionTitle.Text = questions[position];
 
+
             return view;
         }
+
     }
 }

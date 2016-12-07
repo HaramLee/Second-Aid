@@ -2288,11 +2288,14 @@ namespace Second_Aid.Droid
 			// aapt resource value: 0x7f0700bd
 			public const int Schedule = 2131165373;
 			
+			// aapt resource value: 0x7f0700ba
+			public const int VideoDescription = 2131165370;
+			
+			// aapt resource value: 0x7f0700b9
+			public const int VideoName = 2131165369;
 			// aapt resource value: 0x7f0700b7
 			public const int ScheduleContainer = 2131165367;
 			
-			// aapt resource value: 0x7f0700c9
-			public const int VideoDescription = 2131165385;
 			
 			// aapt resource value: 0x7f0700c8
 			public const int VideoName = 2131165384;
@@ -2356,6 +2359,9 @@ namespace Second_Aid.Droid
 			
 			// aapt resource value: 0x7f07002a
 			public const int bottom = 2131165226;
+			
+			// aapt resource value: 0x7f0700b4
+			public const int button1 = 2131165364;
 			
 			// aapt resource value: 0x7f070044
 			public const int buttonPanel = 2131165252;
@@ -2512,9 +2518,10 @@ namespace Second_Aid.Droid
 			
 			// aapt resource value: 0x7f07000b
 			public const int listMode = 2131165195;
-			
-			// aapt resource value: 0x7f07007f
-			public const int listTitle = 2131165311;
+
+			// aapt resource value: 0x7f0700b5
+			public const int listTitle = 2131165365;
+
 			
 			// aapt resource value: 0x7f0700ab
 			public const int listTitleInstructions = 2131165355;
@@ -2743,9 +2750,10 @@ namespace Second_Aid.Droid
 			
 			// aapt resource value: 0x7f070013
 			public const int showTitle = 2131165203;
-			
-			// aapt resource value: 0x7f0700c5
-			public const int sliding_tabs = 2131165381;
+
+			// aapt resource value: 0x7f0700b7
+			public const int sliding_tabs = 2131165367;
+
 			
 			// aapt resource value: 0x7f07006c
 			public const int snackbar_action = 2131165292;
@@ -2815,6 +2823,7 @@ namespace Second_Aid.Droid
 			
 			// aapt resource value: 0x7f0700c6
 			public const int toolbar = 2131165382;
+
 			
 			// aapt resource value: 0x7f070032
 			public const int top = 2131165234;
@@ -2849,8 +2858,10 @@ namespace Second_Aid.Droid
 			// aapt resource value: 0x7f070015
 			public const int wrap_content = 2131165205;
 			
-			// aapt resource value: 0x7f0700ca
-			public const int youtube_view = 2131165386;
+
+			// aapt resource value: 0x7f0700bb
+			public const int youtube_view = 2131165371;
+
 			
 			static Id()
 			{
