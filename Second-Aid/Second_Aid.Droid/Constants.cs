@@ -25,6 +25,8 @@ namespace Second_Aid.Droid
         public const string PROCEDUREDESC_KEY = "proceduredesc_key";
         public const string PREPROCEDUREDESC_KEY = "preproceduredesc_key";
         public const string VIDEO_KEY = "video_key";
+        public const string QUESTION_KEY = "question_key";
+        public const string QUESTIONNAIRE_QUESTIONS_KEY = "questionnaire_questions_key";
 
         public const string BASE_URL = "http://secondaid.azurewebsites.net";
         public const string LOGIN_URL = "/connect/token";
