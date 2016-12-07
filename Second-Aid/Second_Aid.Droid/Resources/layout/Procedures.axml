@@ -1,109 +1,241 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:minWidth="25px"
-    android:minHeight="25px"
-    android:background="#2579BF"
+    android:background="#EEE5E9"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <View
-        android:id="@+id/fakeView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_centerInParent="true" />
-    <TextView
-        android:id="@+id/ProcedureName"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F8EFF8F3"
-        android:hint="Procedure Name"
-        android:gravity="center"
-        android:layout_marginTop="16dp"
-        android:textColor="#333639"
-        android:textColorHint="#333639"
-        android:padding="16dp"
-        android:layout_marginBottom="16dp" />
-    <TextView
-        android:id="@+id/ClinicName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#F8EFF8F3"
-        android:hint="Clinic"
-        android:textColor="#333639"
-        android:textColorHint="#333639"
-        android:padding="16dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignRight="@id/fakeView"
-        android:layout_below="@+id/ProcedureName" />
-    <TextView
-        android:id="@+id/PhoneNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_toRightOf="@+id/ClinicName"
-        android:layout_below="@+id/ProcedureName"
-        android:background="#F8EFF8F3"
-        android:hint="Phone Number"
-        android:textColor="#333639"
-        android:textColorHint="#333639"
-        android:layout_alignLeft="@id/fakeView"
-        android:layout_alignParentRight="true"
-        android:padding="16dp" />
-    <TextView
-        android:id="@+id/DoctorName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="#F8EFF8F3"
-        android:hint="Doctor"
-        android:textColor="#333639"
-        android:textColorHint="#333639"
-        android:padding="16dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignRight="@id/fakeView"
-        android:layout_below="@+id/ClinicName" />
-    <TextView
-        android:id="@+id/Schedule"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="#F8EFF8F3"
-        android:hint="Schedule"
-        android:textColor="#333639"
-        android:textColorHint="#333639"
-        android:layout_marginLeft="5dp"
-        android:layout_alignLeft="@id/fakeView"
-        android:layout_alignParentRight="true"
-        android:padding="16dp"
-        android:layout_below="@+id/ClinicName" />
-    <TextView
-        android:id="@+id/Description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="#F8EFF8F3"
-        android:hint="Description"
-        android:textColor="#333639"
-        android:textColorHint="#333639"
-        android:padding="16dp"
-        android:layout_below="@+id/DoctorName" />
-    <Button
-        android:id="@+id/MedicationButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/Description"
-        android:padding="16dp"
-        android:layout_alignLeft="@id/fakeView"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="16dp"
-        android:text="Medication" />
-    <Button
-        android:id="@+id/PreprocedureButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/Description"
-        android:layout_alignParentLeft="true"
-        android:layout_alignRight="@id/fakeView"
-        android:padding="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Pre-Instruction" />
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+        <View
+            android:id="@+id/fakeView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerInParent="true" />
+        <RelativeLayout
+            android:id="@+id/ProcedureNameContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+            <TextView
+                android:id="@+id/ProcedureName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="Procedure Name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:gravity="center"
+                android:textColor="#333639"
+                android:textColorHint="#333639" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#EEE5E9"
+                android:layout_margin="10dp"
+                android:layout_below="@+id/ProcedureName"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/divider" />
+            <TextView
+                android:id="@+id/Description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:hint="Description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has survived not only five centuries, but also the leap into electronic typesetting. Ipsum."
+                android:textColor="#333639"
+                android:textColorHint="#333639"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:paddingBottom="4dp"
+                android:layout_below="@+id/divider"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/ClinicNameContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/rounded_right"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp"
+            android:layout_below="@+id/ProcedureNameContainer"
+            android:layout_alignLeft="@+id/ProcedureNameContainer"
+            android:layout_alignStart="@+id/ProcedureNameContainer"
+            android:layout_toLeftOf="@+id/fakeView"
+            android:layout_toStartOf="@+id/fakeView">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/clinic_icon"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/imageView" />
+            <TextView
+                android:id="@+id/ClinicName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Clinic"
+                android:textColor="#333639"
+                android:textColorHint="#333639"
+                android:layout_marginRight="8dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@id/imageView"
+                android:layout_toStartOf="@id/imageView"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/PhoneNumberContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_left"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_below="@+id/ProcedureNameContainer"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@+id/fakeView"
+            android:layout_toEndOf="@+id/fakeView">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/phone_icon"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/phoneIcon" />
+            <TextView
+                android:id="@+id/PhoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Phone Number"
+                android:textColor="#333639"
+                android:textColorHint="#333639"
+                android:gravity="right"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@id/phoneIcon"
+                android:layout_toEndOf="@id/phoneIcon"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/DoctorNameContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_right"
+            android:padding="16dp"
+            android:layout_alignTop="@+id/ScheduleContainer"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignRight="@+id/ClinicNameContainer"
+            android:layout_alignEnd="@+id/ClinicNameContainer">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/doctor_icon"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/doctorIcon" />
+            <TextView
+                android:id="@+id/DoctorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Doctor"
+                android:textColor="#333639"
+                android:textColorHint="#333639"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@id/doctorIcon"
+                android:layout_toStartOf="@id/doctorIcon"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/ScheduleContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:background="@drawable/rounded_left"
+            android:layout_below="@+id/PhoneNumberContainer"
+            android:layout_alignRight="@+id/PhoneNumberContainer"
+            android:layout_alignEnd="@+id/PhoneNumberContainer"
+            android:layout_alignLeft="@+id/PhoneNumberContainer"
+            android:layout_alignStart="@+id/PhoneNumberContainer">
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/scheduleIcon">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/schedule_wait"
+                    android:visibility="visible"
+                    android:id="@+id/scheduleWaitIcon" />
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/schedule_done"
+                    android:visibility="invisible"
+                    android:id="@+id/scheduleDoneIcon" />
+            </FrameLayout>
+            <TextView
+                android:id="@+id/Schedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Schedule"
+                android:textColor="#333639"
+                android:textColorHint="#333639"
+                android:gravity="right"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@id/scheduleIcon"
+                android:layout_toEndOf="@id/scheduleIcon"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <Button
+            android:id="@+id/MedicationButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#4A4E69"
+            android:padding="16dp"
+            android:text="Medication"
+            android:textColor="@android:color/white"
+            android:visibility="gone"
+            android:layout_marginTop="8dp"
+            android:layout_below="@+id/ScheduleContainer"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignLeft="@+id/ScheduleContainer"
+            android:layout_alignStart="@+id/ScheduleContainer" />
+        <Button
+            android:id="@+id/PreprocedureButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#4A4E69"
+            android:padding="16dp"
+            android:text="Pre-Instruction"
+            android:textColor="@android:color/white"
+            android:visibility="gone"
+            android:layout_marginTop="8dp"
+            android:layout_below="@+id/ScheduleContainer"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignRight="@+id/DoctorNameContainer"
+            android:layout_alignEnd="@+id/DoctorNameContainer" />
+    </RelativeLayout>
 </RelativeLayout>
