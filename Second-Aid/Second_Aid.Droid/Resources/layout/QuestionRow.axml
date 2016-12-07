@@ -2,14 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/rounded_bg"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp"
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp">
     <TextView
         android:text="Text"
+        android:textColor="#fa8073"
+        android:textAlignment="center"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/Header" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="#fa8073"
         android:id="@+id/Input" />
 </LinearLayout>

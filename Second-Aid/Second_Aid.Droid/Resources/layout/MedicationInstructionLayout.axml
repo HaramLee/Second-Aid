@@ -61,13 +61,22 @@
         android:layout_below="@+id/MedicationContainer"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#4A4E69"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/listTitleView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/divider" />
     <ListView
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/medicationInstruction_listview"
-        android:layout_below="@+id/listTitleView"
+        android:layout_below="@+id/divider"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 </RelativeLayout>

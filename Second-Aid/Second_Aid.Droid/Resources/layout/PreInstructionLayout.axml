@@ -55,10 +55,19 @@
         android:layout_height="wrap_content"
         android:textColor="#333639"
         android:id="@+id/listTitleView"
-        android:layout_marginLeft="16dp"
+        android:layout_marginLeft="8dp"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+  <View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="#4A4E69"
+    android:layout_margin="5dp"
+    android:layout_below="@+id/listTitleView"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:id="@+id/dividerVideos" />
     <ListView
         android:minWidth="25px"
         android:minHeight="25px"
@@ -67,13 +76,13 @@
         android:id="@+id/video_listview"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/listTitleView"
+        android:layout_below="@+id/dividerVideos"
         android:layout_alignParentBottom="true" />
     <TextView
         android:text="List of Instructions"
         android:textStyle="bold|italic"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_marginLeft="16dp"
+        android:layout_marginLeft="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#333639"
@@ -81,13 +90,22 @@
         android:layout_below="@+id/container"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+  <View
+   android:layout_width="match_parent"
+   android:layout_height="1dp"
+   android:background="#4A4E69"
+   android:layout_margin="5dp"
+   android:layout_below="@+id/listTitleInstructions"
+   android:layout_alignParentLeft="true"
+   android:layout_alignParentStart="true"
+   android:id="@+id/dividerInstructions" />
     <ListView
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/preinstruction_listview"
-        android:layout_below="@+id/listTitleInstructions"
+        android:layout_below="@+id/dividerInstructions"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/listTitleView" />

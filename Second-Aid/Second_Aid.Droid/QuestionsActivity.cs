@@ -33,9 +33,7 @@ namespace Second_Aid.Droid
 
             submitButton.Click += (object sender, EventArgs e) =>
             {
-
                 Finish();
-
             };
 
 

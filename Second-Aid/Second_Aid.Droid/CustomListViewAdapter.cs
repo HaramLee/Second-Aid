@@ -23,6 +23,10 @@ namespace Second_Aid.Droid
             items = _items;
             context = _context;
 
+            if (items.Count == 0)
+            {
+                items.Add("There are no items in this list.");
+            }
         }
 
         public override string this[int position]

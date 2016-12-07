@@ -41,7 +41,7 @@ namespace Second_Aid.Droid
             medicationId = await getMedicationID();
             items = await getMedications();
 
-            var adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, items);
+            CustomListViewAdapter adapter = new CustomListViewAdapter(this, items);
             dataDisplay.Adapter = adapter;
             dataDisplay.ItemClick += listviewClicked;
 
