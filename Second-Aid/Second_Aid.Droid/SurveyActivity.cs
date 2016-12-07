@@ -39,6 +39,7 @@ namespace Second_Aid.Droid
 
             items = await getSubProcedures();
             surveyItem = await getSurvey();
+            questionItems = await getQuestions();
 
             var adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, surveyItem);
             dataDisplay.Adapter = adapter;
@@ -47,51 +48,62 @@ namespace Second_Aid.Droid
 
         }
 
-        async void listviewClicked(object sender, AdapterView.ItemClickEventArgs e)
+        void listviewClicked(object sender, AdapterView.ItemClickEventArgs e)
         {
             Intent questionsActivityIntent = new Intent(this, typeof(QuestionsActivity));
 
             questionsActivityIntent.PutExtra(Constants.TOKEN_KEY, token);
             questionsActivityIntent.PutExtra(Constants.QUESTION_KEY, surveyItem[e.Position]);
-            questionsToSend = await getQuestions(surveyItem[e.Position]);
             questionsActivityIntent.PutStringArrayListExtra(Constants.QUESTIONNAIRE_QUESTIONS_KEY, questionsToSend);
-
-            StartActivity(questionsActivityIntent);
+            //Toast.MakeText(this, questionsToSend.First(), ToastLength.Long).Show();
+            //StartActivity(questionsActivityIntent);
         }
 
-        private async Task<List<string>> getQuestions(string title)
+        private async Task<Dictionary<string, Question[]>> getQuestions()
         {
             using(var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Add("Authorization", String.Format("Bearer {0}", this.token));
 
-                var response = await client.GetAsync(Constants.BASE_URL + Constants.SUBPROCEDURES_URL);
+                var response = await client.GetAsync(Constants.BASE_URL + Constants.QUESIONNAIRE_URL);
 
                 var responseString = await response.Content.ReadAsStringAsync();
-
+                Console.WriteLine(responseString);
                 var responseMArray = JsonConvert.DeserializeObject<List<Survey>>(responseString);
-                List<string> data = new List<string>();
-
+                Dictionary<string, Question[]> data = new Dictionary<string, Question[]>();
+                Dictionary<string, List<Question>> tmpdata = new Dictionary<string, List<Question>>();
+                List<Question> tmp = new List<Question>();
                 foreach(var surveyResult in responseMArray)
                 {
                     foreach (var subID in items)
                     {
                         if (surveyResult.subProcedureId.ToString().Equals(subID))
                         {
-                            if(surveyResult.name == title)
-                            {
-                                foreach(var tmp in surveyResult.questions)
-                                {
-                                    data.Add(tmp.questionBody);
-                                }
-                            }
+                            //data.Add(surveyResult.name, surveyResult.questions);
+                            
                         }
                     }
                 }
+                //Toast.MakeText(this, data["Relaxing the pain"], ToastLength.Long).Show();
 
+                /*Console.WriteLine(tmp);
+                var val = data[tmp];
+                foreach(var q in val)
+                {
+                    Console.WriteLine(q.questionBody);
+                }*/
                 return data;
             }
         }
+
+        private void fuckingPrint(Dictionary<string, Question[]> data)
+        {
+            foreach (var x in data["Relaxing the pain"])
+            {
+                Console.WriteLine(x.questionBody);
+            }
+        }
+
 
         private async Task<List<string>> getSurvey()
         {

@@ -40,6 +40,7 @@ namespace Second_Aid.Droid
         public const string CLINIC_URL = "/api/Clinics";
         public const string SCHEDULE_URL = "/api/Schedules";
         public const string VIDEO_URL = "/api/videos";
+        public const string QUESIONNAIRE_URL = "/api/Questionnaires";
 
         public static string YOUTUBE_API_KEY = "AIzaSyC3nWK4O5q4rzvWhcGO7FHktvS4CdmHvaQ";
     }
