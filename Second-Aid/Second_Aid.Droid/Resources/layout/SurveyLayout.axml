@@ -21,6 +21,6 @@
       android:layout_marginLeft="16dp"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:layout_below="listTitle"
+      android:layout_below="@+id/listTitle"
       android:id="@+id/survey_listview" />
 </RelativeLayout>

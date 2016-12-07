@@ -20,15 +20,17 @@ namespace Second_Aid.Droid
     public class LoginActivity : Activity
     {
 
+        Button login;
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-
+            
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.login);
 
             //Initializing button from layout
-            Button login = FindViewById<Button>(Resource.Id.login);
+            login = FindViewById<Button>(Resource.Id.login);
 
             var usernameInput = FindViewById<EditText>(Resource.Id.userName);
             var passwordInput = FindViewById<EditText>(Resource.Id.password);
@@ -36,6 +38,10 @@ namespace Second_Aid.Droid
 
             //Login button click action
             login.Click += async (object sender, EventArgs e) => {
+                this.login.Enabled = false;
+
+                Console.Write("BUTTON CLICKED");
+
                 var username = usernameInput.Text.ToString().Trim();
                 var password = passwordInput.Text.ToString();
                 var clinicId = clinicIdInput.Text.ToString();
@@ -49,6 +55,7 @@ namespace Second_Aid.Droid
                     StartActivity(scheduleActivityIntent);
                 }
 
+                this.login.Enabled = true;
             };
         }
 
@@ -71,17 +78,26 @@ namespace Second_Aid.Droid
                 var responseString = await response.Content.ReadAsStringAsync();
 
                 if (responseString == null) // check for response 
+                {
+                    Toast.MakeText(this, "No response from server.", ToastLength.Long).Show();
                     return null;
+                }
 
                 var responseJson = JObject.Parse(responseString);
 
                 if (responseJson == null)   // check for compatible format 
+                {
+                    Toast.MakeText(this, "No data received from server.", ToastLength.Long).Show();
                     return null;
+                }
 
                 var token = responseJson.GetValue("access_token");
 
                 if (token == null)          // check for token 
+                {
+                    Toast.MakeText(this, "Invalid credentials.", ToastLength.Long).Show();
                     return null;
+                }
 
                 return token.ToString();
             }
