@@ -37,6 +37,10 @@ namespace Second_Aid.Droid
 
             ListView dataDisplay = FindViewById<ListView>(Resource.Id.survey_listview);
 
+            items = new List<string>();
+            questionItems = new Dictionary<string, Question[]>();
+            questionsToSend = new List<string>();
+            surveyItem = new List<string>();
             items = await getSubProcedures();
            // surveyItem = await getSurvey();
             questionItems = await getQuestions();
@@ -60,7 +64,7 @@ namespace Second_Aid.Droid
             var tmp = questionItems[x].ToList();
             foreach(var t in tmp)
             {
-                questionsToSend.Add(t.questionBody);
+                    questionsToSend.Add(t.questionBody);
             }
             questionsActivityIntent.PutStringArrayListExtra(Constants.QUESTIONNAIRE_QUESTIONS_KEY, questionsToSend);
             //Toast.MakeText(this, questionsToSend.First(), ToastLength.Long).Show();
