@@ -2492,8 +2492,8 @@ namespace Second_Aid.Droid
 			// aapt resource value: 0x7f07003f
 			public const int image = 2131165247;
 			
-			// aapt resource value: 0x7f070072
-			public const int imageView = 2131165298;
+			// aapt resource value: 0x7f070073
+			public const int imageView = 2131165299;
 			
 			// aapt resource value: 0x7f0700a5
 			public const int info = 2131165349;
@@ -2801,8 +2801,8 @@ namespace Second_Aid.Droid
 			// aapt resource value: 0x7f07004d
 			public const int textSpacerNoButtons = 2131165261;
 			
-			// aapt resource value: 0x7f070073
-			public const int textView = 2131165299;
+			// aapt resource value: 0x7f070072
+			public const int textView = 2131165298;
 			
 			// aapt resource value: 0x7f0700a0
 			public const int time = 2131165344;
@@ -3039,97 +3039,100 @@ namespace Second_Aid.Droid
 			public const int design_navigation_menu_item = 2130903076;
 			
 			// aapt resource value: 0x7f030025
-			public const int login = 2130903077;
+			public const int listview_row = 2130903077;
 			
 			// aapt resource value: 0x7f030026
-			public const int MainPageLayout = 2130903078;
+			public const int login = 2130903078;
 			
 			// aapt resource value: 0x7f030027
-			public const int MedicationInstructionLayout = 2130903079;
+			public const int MainPageLayout = 2130903079;
 			
 			// aapt resource value: 0x7f030028
-			public const int MedicationsLayout = 2130903080;
+			public const int MedicationInstructionLayout = 2130903080;
 			
 			// aapt resource value: 0x7f030029
-			public const int mr_chooser_dialog = 2130903081;
+			public const int MedicationsLayout = 2130903081;
 			
 			// aapt resource value: 0x7f03002a
-			public const int mr_chooser_list_item = 2130903082;
+			public const int mr_chooser_dialog = 2130903082;
 			
 			// aapt resource value: 0x7f03002b
-			public const int mr_controller_material_dialog_b = 2130903083;
+			public const int mr_chooser_list_item = 2130903083;
 			
 			// aapt resource value: 0x7f03002c
-			public const int mr_controller_volume_item = 2130903084;
+			public const int mr_controller_material_dialog_b = 2130903084;
 			
 			// aapt resource value: 0x7f03002d
-			public const int mr_playback_control = 2130903085;
+			public const int mr_controller_volume_item = 2130903085;
 			
 			// aapt resource value: 0x7f03002e
-			public const int mr_volume_control = 2130903086;
+			public const int mr_playback_control = 2130903086;
 			
 			// aapt resource value: 0x7f03002f
-			public const int notification_media_action = 2130903087;
+			public const int mr_volume_control = 2130903087;
 			
 			// aapt resource value: 0x7f030030
-			public const int notification_media_cancel_action = 2130903088;
+			public const int notification_media_action = 2130903088;
 			
 			// aapt resource value: 0x7f030031
-			public const int notification_template_big_media = 2130903089;
+			public const int notification_media_cancel_action = 2130903089;
 			
 			// aapt resource value: 0x7f030032
-			public const int notification_template_big_media_narrow = 2130903090;
+			public const int notification_template_big_media = 2130903090;
 			
 			// aapt resource value: 0x7f030033
-			public const int notification_template_lines = 2130903091;
+			public const int notification_template_big_media_narrow = 2130903091;
 			
 			// aapt resource value: 0x7f030034
-			public const int notification_template_media = 2130903092;
+			public const int notification_template_lines = 2130903092;
 			
 			// aapt resource value: 0x7f030035
-			public const int notification_template_part_chronometer = 2130903093;
+			public const int notification_template_media = 2130903093;
 			
 			// aapt resource value: 0x7f030036
-			public const int notification_template_part_time = 2130903094;
+			public const int notification_template_part_chronometer = 2130903094;
 			
 			// aapt resource value: 0x7f030037
-			public const int PreInstructionLayout = 2130903095;
+			public const int notification_template_part_time = 2130903095;
 			
 			// aapt resource value: 0x7f030038
-			public const int Procedures = 2130903096;
+			public const int PreInstructionLayout = 2130903096;
 			
 			// aapt resource value: 0x7f030039
-			public const int QuestionRow = 2130903097;
+			public const int Procedures = 2130903097;
 			
 			// aapt resource value: 0x7f03003a
-			public const int Questions = 2130903098;
+			public const int QuestionRow = 2130903098;
 			
 			// aapt resource value: 0x7f03003b
-			public const int select_dialog_item_material = 2130903099;
+			public const int Questions = 2130903099;
 			
 			// aapt resource value: 0x7f03003c
-			public const int select_dialog_multichoice_material = 2130903100;
+			public const int select_dialog_item_material = 2130903100;
 			
 			// aapt resource value: 0x7f03003d
-			public const int select_dialog_singlechoice_material = 2130903101;
+			public const int select_dialog_multichoice_material = 2130903101;
 			
 			// aapt resource value: 0x7f03003e
-			public const int SubProcedures = 2130903102;
+			public const int select_dialog_singlechoice_material = 2130903102;
 			
 			// aapt resource value: 0x7f03003f
-			public const int support_simple_spinner_dropdown_item = 2130903103;
+			public const int SubProcedures = 2130903103;
 			
 			// aapt resource value: 0x7f030040
-			public const int SurveyLayout = 2130903104;
+			public const int support_simple_spinner_dropdown_item = 2130903104;
 			
 			// aapt resource value: 0x7f030041
-			public const int Tabbar = 2130903105;
+			public const int SurveyLayout = 2130903105;
 			
 			// aapt resource value: 0x7f030042
-			public const int Toolbar = 2130903106;
+			public const int Tabbar = 2130903106;
 			
 			// aapt resource value: 0x7f030043
-			public const int VideoLayout = 2130903107;
+			public const int Toolbar = 2130903107;
+			
+			// aapt resource value: 0x7f030044
+			public const int VideoLayout = 2130903108;
 			
 			static Layout()
 			{
