@@ -207,35 +207,45 @@
                 android:layout_toEndOf="@id/scheduleIcon"
                 android:layout_centerVertical="true" />
         </RelativeLayout>
-        <Button
-            android:id="@+id/MedicationButton"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#4A4E69"
-            android:padding="16dp"
-            android:text="Medication"
-            android:textColor="@android:color/white"
-            android:visibility="gone"
+            android:orientation="horizontal"
             android:layout_marginTop="8dp"
-            android:layout_below="@+id/ScheduleContainer"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignLeft="@+id/ScheduleContainer"
-            android:layout_alignStart="@+id/ScheduleContainer" />
-        <Button
-            android:id="@+id/PreprocedureButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#4A4E69"
-            android:padding="16dp"
-            android:text="Pre-Instruction"
-            android:textColor="@android:color/white"
-            android:visibility="gone"
-            android:layout_marginTop="8dp"
-            android:layout_below="@+id/ScheduleContainer"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignRight="@+id/DoctorNameContainer"
-            android:layout_alignEnd="@+id/DoctorNameContainer" />
+            android:layout_below="@+id/ScheduleContainer">
+            <Button
+                android:id="@+id/MedicationButton"
+                android:layout_weight="1"
+                android:layout_width="0px"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:background="#4A4E69"
+                android:padding="16dp"
+                android:text="Medication"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@android:color/white" />
+            <Button
+                android:id="@+id/PreprocedureButton"
+                android:layout_weight="1"
+                android:layout_width="0px"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:background="#4A4E69"
+                android:padding="16dp"
+                android:text="Pre-Instruction"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@android:color/white" />
+            <Button
+                android:id="@+id/surveyButton"
+                android:layout_weight="1"
+                android:layout_width="0px"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:background="#4A4E69"
+                android:padding="16dp"
+                android:text="Survey"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
     </RelativeLayout>
 </RelativeLayout>

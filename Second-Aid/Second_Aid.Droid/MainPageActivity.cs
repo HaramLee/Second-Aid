@@ -25,7 +25,6 @@ namespace Second_Aid.Droid
         private List<string> items = new List<string>();
         private List<string> idItems = new List<string>();
         private List<string> idDescription = new List<string>();
-        private List<string> medicationId = new List<string>();
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
@@ -44,10 +43,10 @@ namespace Second_Aid.Droid
             };
 
 
-            items = await getProcedureID();
-            idItems = await getProcedure(items);
+            idItems = await getProcedureID();
+            items = await getProcedure(idItems);
 
-            var adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, idItems);
+            var adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, items);
             dataDisplay.Adapter = adapter;
 
             dataDisplay.ItemClick += listviewClicked;
@@ -59,10 +58,9 @@ namespace Second_Aid.Droid
         {
             Intent proceduresActivityIntent = new Intent(this, typeof(ProcedureActivity));
 
-            proceduresActivityIntent.PutExtra(Constants.PROCEDURE_KEY, idItems[e.Position]);
-            proceduresActivityIntent.PutExtra(Constants.PROCEDUREID_KEY, items[e.Position]);
+            proceduresActivityIntent.PutExtra(Constants.PROCEDURE_KEY, items[e.Position]);
+            proceduresActivityIntent.PutExtra(Constants.PROCEDUREID_KEY, idItems[e.Position]);
             proceduresActivityIntent.PutExtra(Constants.PROCEDUREDESC_KEY, idDescription[e.Position]);
-            proceduresActivityIntent.PutStringArrayListExtra(Constants.MEDICATION_KEY, medicationId);
             proceduresActivityIntent.PutExtra(Constants.TOKEN_KEY, token);
 
             StartActivity(proceduresActivityIntent);
@@ -86,15 +84,9 @@ namespace Second_Aid.Droid
                 foreach (var patientProcedures in responseMArray)
                 {
 
-                    if (!data.Contains(patientProcedures.procedureId.ToString()))
-                    {
+                  
                         data.Add(patientProcedures.procedureId.ToString());
-
-                        if (!medicationId.Contains(patientProcedures.MedicationId.ToString()))
-                        {
-                            medicationId.Add(patientProcedures.MedicationId.ToString());
-                        }
-                    }
+    
 
                 }
 

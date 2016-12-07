@@ -25,6 +25,8 @@ namespace Second_Aid.Droid
         public const string PROCEDUREDESC_KEY = "proceduredesc_key";
         public const string PREPROCEDUREDESC_KEY = "preproceduredesc_key";
         public const string VIDEO_KEY = "video_key";
+        public const string QUESTION_KEY = "question_key";
+        public const string QUESTIONNAIRE_QUESTIONS_KEY = "questionnaire_questions_key";
 
         public const string BASE_URL = "http://secondaid.azurewebsites.net";
         public const string LOGIN_URL = "/connect/token";
@@ -38,6 +40,7 @@ namespace Second_Aid.Droid
         public const string CLINIC_URL = "/api/Clinics";
         public const string SCHEDULE_URL = "/api/Schedules";
         public const string VIDEO_URL = "/api/videos";
+        public const string QUESIONNAIRE_URL = "/api/Questionnaires";
 
         public static string YOUTUBE_API_KEY = "AIzaSyC3nWK4O5q4rzvWhcGO7FHktvS4CdmHvaQ";
     }
