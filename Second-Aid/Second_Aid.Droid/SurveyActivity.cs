@@ -23,6 +23,8 @@ namespace Second_Aid.Droid
         private string procedureId;
         private List<string> items = new List<string>();
         private List<string> surveyItem = new List<string>();
+        private Dictionary<string, Question[]> questionItems = new Dictionary<string, Question[]>();
+        private List<string> questionsToSend = new List<string>();
 
         protected override async void OnCreate(Bundle savedInstanceState)
         {
@@ -45,9 +47,50 @@ namespace Second_Aid.Droid
 
         }
 
-        void listviewClicked(object sender, AdapterView.ItemClickEventArgs e)
+        async void listviewClicked(object sender, AdapterView.ItemClickEventArgs e)
         {
-            
+            Intent questionsActivityIntent = new Intent(this, typeof(QuestionsActivity));
+
+            questionsActivityIntent.PutExtra(Constants.TOKEN_KEY, token);
+            questionsActivityIntent.PutExtra(Constants.QUESTION_KEY, surveyItem[e.Position]);
+            questionsToSend = await getQuestions(surveyItem[e.Position]);
+            questionsActivityIntent.PutStringArrayListExtra(Constants.QUESTIONNAIRE_QUESTIONS_KEY, questionsToSend);
+
+            StartActivity(questionsActivityIntent);
+        }
+
+        private async Task<List<string>> getQuestions(string title)
+        {
+            using(var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Add("Authorization", String.Format("Bearer {0}", this.token));
+
+                var response = await client.GetAsync(Constants.BASE_URL + Constants.SUBPROCEDURES_URL);
+
+                var responseString = await response.Content.ReadAsStringAsync();
+
+                var responseMArray = JsonConvert.DeserializeObject<List<Survey>>(responseString);
+                List<string> data = new List<string>();
+
+                foreach(var surveyResult in responseMArray)
+                {
+                    foreach (var subID in items)
+                    {
+                        if (surveyResult.subProcedureId.ToString().Equals(subID))
+                        {
+                            if(surveyResult.name == title)
+                            {
+                                foreach(var tmp in surveyResult.questions)
+                                {
+                                    data.Add(tmp.questionBody);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return data;
+            }
         }
 
         private async Task<List<string>> getSurvey()
@@ -72,7 +115,7 @@ namespace Second_Aid.Droid
                         if (surveyList.subProcedureId.ToString().Equals(subID))
                         {
                             data.Add(surveyList.name);
-                          
+                            questionItems.Add(surveyList.name, surveyList.questions);
                         }
                     }
 

@@ -133,6 +133,8 @@
     <Compile Include="Models\Video.cs" />
     <Compile Include="PreInstructionActivity.cs" />
     <Compile Include="ProcedureActivity.cs" />
+    <Compile Include="QuestionAdapter.cs" />
+    <Compile Include="QuestionsActivity.cs" />
     <Compile Include="SubProcedureActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -167,6 +169,12 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\SurveyLayout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Questions.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\QuestionRow.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
