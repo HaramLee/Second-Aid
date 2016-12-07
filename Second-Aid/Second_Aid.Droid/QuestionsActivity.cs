@@ -25,11 +25,13 @@ namespace Second_Aid.Droid
 
             this.token = Intent.GetStringExtra(Constants.TOKEN_KEY) ?? "No token detected.";
             this.surveyName = Intent.GetStringExtra(Constants.QUESTION_KEY) ?? "No name detected";
-            this.questions = Intent.GetStringArrayListExtra(Constants.QUESTIONNAIRE_QUESTIONS_KEY) as List<string>;
+            this.questions = new List<string>(Intent.GetStringArrayListExtra(Constants.QUESTIONNAIRE_QUESTIONS_KEY));
 
-            var questionsAdapter = new QuestionAdapter(this, questions);
+
+            var questionsAdapter = new QuestionAdapter(this, this.questions);
             var questionsListView = FindViewById<ListView>(Resource.Id.questionListView);
             questionsListView.Adapter = questionsAdapter;
+            //questionsListView.SetOnClickListener(null);
         }
 
     }
