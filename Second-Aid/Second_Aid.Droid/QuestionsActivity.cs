@@ -25,6 +25,7 @@ namespace Second_Aid.Droid
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Questions);
 
+            this.questions = new List<string>();
             this.token = Intent.GetStringExtra(Constants.TOKEN_KEY) ?? "No token detected.";
             this.surveyName = Intent.GetStringExtra(Constants.QUESTION_KEY) ?? "No name detected";
             this.questions = new List<string>(Intent.GetStringArrayListExtra(Constants.QUESTIONNAIRE_QUESTIONS_KEY));
@@ -33,6 +34,7 @@ namespace Second_Aid.Droid
 
             submitButton.Click += (object sender, EventArgs e) =>
             {
+                Toast.MakeText(this, "Thank you for completing our survey!", ToastLength.Long).Show();
                 Finish();
             };
 

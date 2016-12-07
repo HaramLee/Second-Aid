@@ -142,6 +142,8 @@ namespace Second_Aid.Droid
                 if (this.schedule != null && this.schedule.isCompleted)
                 {
                     this.surveyButton.Visibility = ViewStates.Visible;
+                    this.medicationButton.Visibility = ViewStates.Gone;
+                    this.preprocedureButton.Visibility = ViewStates.Gone;
                     this.scheduleDoneIcon.Visibility = ViewStates.Visible;
                     this.scheduleWaitIcon.Visibility = ViewStates.Gone;
                     this.Schedule.Text = "Completed";
@@ -149,6 +151,8 @@ namespace Second_Aid.Droid
                 else if (this.schedule != null && !this.schedule.isCompleted)
                 {
                     this.surveyButton.Visibility = ViewStates.Gone;
+                    this.medicationButton.Visibility = ViewStates.Visible;
+                    this.preprocedureButton.Visibility = ViewStates.Visible;
                     this.scheduleDoneIcon.Visibility = ViewStates.Gone;
                     this.scheduleWaitIcon.Visibility = ViewStates.Visible;
                     this.Schedule.Text = this.schedule.time.ToString("MMM d, yyyy h:mm tt");
