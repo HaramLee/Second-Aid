@@ -40,12 +40,12 @@ namespace Second_Aid.Droid
 
         public override Java.Lang.Object GetItem(int position)
         {
-            return null;
+            return questions[position];
         }
 
         public override long GetItemId(int position)
         {
-            return 1;
+            return position;
         }
 
         public override View GetView(int position, View convertView, ViewGroup parent)
@@ -59,5 +59,6 @@ namespace Second_Aid.Droid
 
             return view;
         }
+
     }
 }
