@@ -138,13 +138,11 @@ namespace Second_Aid.Droid
 
                 if (this.schedule != null && this.schedule.isCompleted)
                 {
-                    medicationButton.Visibility = ViewStates.Visible;
-                    preprocedureButton.Visibility = ViewStates.Visible;
+                    surveyButton.Visibility = ViewStates.Visible;
                 }
                 else if (this.schedule != null && !this.schedule.isCompleted)
                 {
-                    medicationButton.Visibility = ViewStates.Gone;
-                    preprocedureButton.Visibility = ViewStates.Gone;
+                    surveyButton.Visibility = ViewStates.Gone;
                 }
                 else
                 {

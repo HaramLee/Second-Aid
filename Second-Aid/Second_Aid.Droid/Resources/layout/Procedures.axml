@@ -105,7 +105,7 @@
         android:layout_alignRight="@id/fakeView"
         android:padding="16dp"
         android:layout_marginTop="16dp"
-        android:text="Pre-Instruction" />
+        android:text="Sub Procedure" />
     <Button
         android:id="@+id/surveyButton"
         android:layout_width="wrap_content"
