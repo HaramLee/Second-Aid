@@ -1,47 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2579BF"
-    android:minWidth="25px"
-    android:minHeight="25px">
-    <TextView
-        android:id="@+id/title"
+    android:padding="8dp"
+    android:background="#EEE5E9">
+    <RelativeLayout
+        android:id="@+id/MedicationContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F8EFF8F3"
-        android:hint="Medication Name"
-        android:gravity="center"
-        android:layout_marginTop="16dp"
-        android:textColor="#333639"
-        android:textColorHint="#333639"
+        android:background="#FFFFFF"
         android:padding="16dp"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Medication Name"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#333639"
+            android:textColorHint="#333639"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#EEE5E9"
+            android:id="@+id/divider"
+            android:layout_margin="10dp"
+            android:layout_below="@+id/title"
+            android:layout_centerHorizontal="true" />
+        <TextView
+            android:id="@+id/medDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Description"
+            android:textColor="#333639"
+            android:textColorHint="#333639"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_below="@+id/divider"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
     <TextView
-        android:id="@+id/medDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:background="#F8EFF8F3"
-        android:hint="Description"
-        android:textColor="#333639"
-        android:textColorHint="#333639"
-        android:padding="16dp" />
-    <TextView
-        android:text="List of Medication Instruction"
+        android:id="@+id/listTitleView"
+        android:text="Medication Instruction"
         android:textStyle="bold|italic"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="#333639"
+        android:layout_marginTop="8dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginBottom="8dp"
-        android:textColor="#F8EFF8F3"
-        android:id="@+id/listTitleView" />
+        android:layout_below="@+id/MedicationContainer"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ListView
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/medicationInstruction_listview" />
-</LinearLayout>
+        android:id="@+id/medicationInstruction_listview"
+        android:layout_below="@+id/listTitleView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>

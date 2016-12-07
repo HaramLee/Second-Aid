@@ -1,20 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2579BF"
-    android:minWidth="25px"
-    android:minHeight="25px">
+    android:background="#EEE5E9"
+    android:padding="8dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="PROCEDURES"
+        android:textColor="#FA8073"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/data_listview"
+        android:layout_alignEnd="@+id/data_listview" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#4A4E69"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/imageView" />
+    <ListView
+        android:minWidth="25dp"
+        android:minHeight="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:id="@+id/data_listview"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/logout_button"
+        android:layout_below="@+id/imageView" />
     <Button
         android:text="Logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/logout_button" />
-    <ListView
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/data_listview" />
-</LinearLayout>
+        android:background="#4A4E69"
+        android:id="@+id/logout_button"
+        android:textColor="@android:color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/data_listview"
+        android:layout_alignStart="@+id/data_listview" />
+</RelativeLayout>

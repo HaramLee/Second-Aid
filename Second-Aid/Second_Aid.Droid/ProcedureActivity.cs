@@ -29,7 +29,10 @@ namespace Second_Aid.Droid
         Button preprocedureButton;
         Button surveyButton;
 
-        private IList<string> items = new List<string>();
+        TextView Schedule;
+        ImageView scheduleWaitIcon;
+        ImageView scheduleDoneIcon;
+
         private Schedule schedule;    // A schedule is one event, binded to a patient and a procedure.
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -41,19 +44,19 @@ namespace Second_Aid.Droid
             this.procedureName = Intent.GetStringExtra(Constants.PROCEDURE_KEY) ?? "No Procedure Name detected.";
             this.procedureId = Intent.GetStringExtra(Constants.PROCEDUREID_KEY) ?? "No Procedure Id detected.";
             this.token = Intent.GetStringExtra(Constants.TOKEN_KEY) ?? "No token detected.";
-            this.items = Intent.GetStringArrayListExtra(Constants.MEDICATION_KEY);
             this.procedureDetail = Intent.GetStringExtra(Constants.PROCEDUREDESC_KEY) ?? "No Procedure description detected.";
 
             medicationButton = FindViewById<Button>(Resource.Id.MedicationButton);
             preprocedureButton = FindViewById<Button>(Resource.Id.PreprocedureButton);
+            surveyButton = FindViewById<Button>(Resource.Id.surveyButton);
 
             TextView title = FindViewById<TextView>(Resource.Id.ProcedureName);
-            
             TextView DoctorName = FindViewById<TextView>(Resource.Id.DoctorName);
-            TextView Schedule = FindViewById<TextView>(Resource.Id.Schedule);
             TextView Description = FindViewById<TextView>(Resource.Id.Description);
 
-            surveyButton = FindViewById<Button>(Resource.Id.surveyButton);
+            Schedule = FindViewById<TextView>(Resource.Id.Schedule);
+            scheduleWaitIcon = FindViewById<ImageView>(Resource.Id.scheduleWaitIcon);
+            scheduleDoneIcon = FindViewById<ImageView>(Resource.Id.scheduleDoneIcon);
 
             title.Text = procedureName;
             Description.Text = "Description: " + procedureDetail;
@@ -66,7 +69,7 @@ namespace Second_Aid.Droid
 
                 Intent medicationActivityIntent = new Intent(this, typeof(MedicationsActivity));
                 medicationActivityIntent.PutExtra(Constants.TOKEN_KEY, token);
-                medicationActivityIntent.PutStringArrayListExtra(Constants.MEDICATION_KEY, items);
+                medicationActivityIntent.PutExtra(Constants.PROCEDUREID_KEY, procedureId);
                 StartActivity(medicationActivityIntent);
 
             };
@@ -138,13 +141,17 @@ namespace Second_Aid.Droid
 
                 if (this.schedule != null && this.schedule.isCompleted)
                 {
-                    medicationButton.Visibility = ViewStates.Visible;
-                    preprocedureButton.Visibility = ViewStates.Visible;
+                    this.surveyButton.Visibility = ViewStates.Visible;
+                    this.scheduleDoneIcon.Visibility = ViewStates.Visible;
+                    this.scheduleWaitIcon.Visibility = ViewStates.Gone;
+                    this.Schedule.Text = "Completed";
                 }
                 else if (this.schedule != null && !this.schedule.isCompleted)
                 {
-                    medicationButton.Visibility = ViewStates.Gone;
-                    preprocedureButton.Visibility = ViewStates.Gone;
+                    this.surveyButton.Visibility = ViewStates.Gone;
+                    this.scheduleDoneIcon.Visibility = ViewStates.Gone;
+                    this.scheduleWaitIcon.Visibility = ViewStates.Visible;
+                    this.Schedule.Text = this.schedule.time.ToString("MMM d, yyyy h:mm tt");
                 }
                 else
                 {
