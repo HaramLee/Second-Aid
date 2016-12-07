@@ -2291,11 +2291,11 @@ namespace Second_Aid.Droid
 			// aapt resource value: 0x7f0700b9
 			public const int ScheduleContainer = 2131165369;
 			
-			// aapt resource value: 0x7f0700cb
-			public const int VideoDescription = 2131165387;
+			// aapt resource value: 0x7f0700cc
+			public const int VideoDescription = 2131165388;
 			
-			// aapt resource value: 0x7f0700ca
-			public const int VideoName = 2131165386;
+			// aapt resource value: 0x7f0700cb
+			public const int VideoName = 2131165387;
 			
 			// aapt resource value: 0x7f07009a
 			public const int action0 = 2131165338;
@@ -2672,8 +2672,8 @@ namespace Second_Aid.Droid
 			// aapt resource value: 0x7f070054
 			public const int radio = 2131165268;
 			
-			// aapt resource value: 0x7f0700c9
-			public const int relativeLayout = 2131165385;
+			// aapt resource value: 0x7f0700ca
+			public const int relativeLayout = 2131165386;
 			
 			// aapt resource value: 0x7f070030
 			public const int right = 2131165232;
@@ -2750,8 +2750,8 @@ namespace Second_Aid.Droid
 			// aapt resource value: 0x7f070013
 			public const int showTitle = 2131165203;
 			
-			// aapt resource value: 0x7f0700c7
-			public const int sliding_tabs = 2131165383;
+			// aapt resource value: 0x7f0700c8
+			public const int sliding_tabs = 2131165384;
 			
 			// aapt resource value: 0x7f07006c
 			public const int snackbar_action = 2131165292;
@@ -2786,14 +2786,17 @@ namespace Second_Aid.Droid
 			// aapt resource value: 0x7f0700a9
 			public const int subdescription = 2131165353;
 			
+			// aapt resource value: 0x7f0700c6
+			public const int submitButton = 2131165382;
+			
 			// aapt resource value: 0x7f070065
 			public const int submit_area = 2131165285;
 			
 			// aapt resource value: 0x7f0700c2
 			public const int surveyButton = 2131165378;
 			
-			// aapt resource value: 0x7f0700c6
-			public const int survey_listview = 2131165382;
+			// aapt resource value: 0x7f0700c7
+			public const int survey_listview = 2131165383;
 			
 			// aapt resource value: 0x7f07000d
 			public const int tabMode = 2131165197;
@@ -2819,8 +2822,8 @@ namespace Second_Aid.Droid
 			// aapt resource value: 0x7f070048
 			public const int title_template = 2131165256;
 			
-			// aapt resource value: 0x7f0700c8
-			public const int toolbar = 2131165384;
+			// aapt resource value: 0x7f0700c9
+			public const int toolbar = 2131165385;
 			
 			// aapt resource value: 0x7f070032
 			public const int top = 2131165234;
@@ -2855,8 +2858,8 @@ namespace Second_Aid.Droid
 			// aapt resource value: 0x7f070015
 			public const int wrap_content = 2131165205;
 			
-			// aapt resource value: 0x7f0700cc
-			public const int youtube_view = 2131165388;
+			// aapt resource value: 0x7f0700cd
+			public const int youtube_view = 2131165389;
 			
 			static Id()
 			{
