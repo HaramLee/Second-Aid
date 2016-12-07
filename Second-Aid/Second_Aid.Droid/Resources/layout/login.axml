@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="8dp"
-    android:background="#EEE5E9"
-    android:orientation="vertical">
+    android:background="#EEE5E9">
 	
     <ImageView
         android:layout_width="100dp"
@@ -34,6 +33,8 @@
         android:nextFocusForward="@+id/password"
         android:padding="5dp"
         android:singleLine="true"
+        android:textColor="#fa8073"
+        android:textColorHint="#fa8073"
         android:inputType="textEmailAddress"
         android:layout_marginBottom="5dp"
         android:layout_centerVertical="true"
@@ -43,6 +44,8 @@
         android:layout_width="250dp"
         android:layout_height="45dp"
         android:hint="Password"
+        android:textColor="#fa8073"
+        android:textColorHint="#fa8073"
         android:inputType="textPassword"
         android:padding="5dp"
         android:layout_marginBottom="5dp"
@@ -53,6 +56,8 @@
         android:layout_width="250dp"
         android:layout_height="45dp"
         android:hint="Clinic ID"
+        android:textColor="#fa8073"
+        android:textColorHint="#fa8073"
         android:inputType="number"
         android:layout_marginBottom="5dp"
         android:layout_below="@+id/password"

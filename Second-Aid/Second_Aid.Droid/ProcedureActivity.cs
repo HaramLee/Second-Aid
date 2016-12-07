@@ -30,6 +30,8 @@ namespace Second_Aid.Droid
         Button surveyButton;
 
         TextView Schedule;
+        ImageView scheduleWaitIcon;
+        ImageView scheduleDoneIcon;
 
         private Schedule schedule;    // A schedule is one event, binded to a patient and a procedure.
 
@@ -46,14 +48,15 @@ namespace Second_Aid.Droid
 
             medicationButton = FindViewById<Button>(Resource.Id.MedicationButton);
             preprocedureButton = FindViewById<Button>(Resource.Id.PreprocedureButton);
+            surveyButton = FindViewById<Button>(Resource.Id.surveyButton);
 
             TextView title = FindViewById<TextView>(Resource.Id.ProcedureName);
-            
             TextView DoctorName = FindViewById<TextView>(Resource.Id.DoctorName);
-            Schedule = FindViewById<TextView>(Resource.Id.Schedule);
             TextView Description = FindViewById<TextView>(Resource.Id.Description);
 
-            surveyButton = FindViewById<Button>(Resource.Id.surveyButton);
+            Schedule = FindViewById<TextView>(Resource.Id.Schedule);
+            scheduleWaitIcon = FindViewById<ImageView>(Resource.Id.scheduleWaitIcon);
+            scheduleDoneIcon = FindViewById<ImageView>(Resource.Id.scheduleDoneIcon);
 
             title.Text = procedureName;
             Description.Text = "Description: " + procedureDetail;
@@ -138,13 +141,17 @@ namespace Second_Aid.Droid
 
                 if (this.schedule != null && this.schedule.isCompleted)
                 {
-                    surveyButton.Visibility = ViewStates.Visible;
-                    Schedule.Text = "Completed";
+                    this.surveyButton.Visibility = ViewStates.Visible;
+                    this.scheduleDoneIcon.Visibility = ViewStates.Visible;
+                    this.scheduleWaitIcon.Visibility = ViewStates.Gone;
+                    this.Schedule.Text = "Completed";
                 }
                 else if (this.schedule != null && !this.schedule.isCompleted)
                 {
-                    surveyButton.Visibility = ViewStates.Gone;
-                    Schedule.Text = this.schedule.time.ToString("MMM d, yyyy h:mm tt");
+                    this.surveyButton.Visibility = ViewStates.Gone;
+                    this.scheduleDoneIcon.Visibility = ViewStates.Gone;
+                    this.scheduleWaitIcon.Visibility = ViewStates.Visible;
+                    this.Schedule.Text = this.schedule.time.ToString("MMM d, yyyy h:mm tt");
                 }
                 else
                 {

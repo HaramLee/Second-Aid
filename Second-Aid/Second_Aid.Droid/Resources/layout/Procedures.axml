@@ -243,6 +243,7 @@
                 android:layout_margin="4dp"
                 android:background="#4A4E69"
                 android:padding="16dp"
+                android:visibility="gone"
                 android:text="Survey"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="@android:color/white" />
