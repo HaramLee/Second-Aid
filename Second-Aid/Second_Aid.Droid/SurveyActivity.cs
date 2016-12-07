@@ -41,7 +41,7 @@ namespace Second_Aid.Droid
             surveyItem = await getSurvey();
             questionItems = await getQuestions();
 
-            var adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, surveyItem);
+            CustomListViewAdapter adapter = new CustomListViewAdapter(this, items);
             dataDisplay.Adapter = adapter;
 
             dataDisplay.ItemClick += listviewClicked;

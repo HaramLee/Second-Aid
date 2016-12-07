@@ -44,7 +44,7 @@ namespace Second_Aid.Droid
             title.Text = medicationName;
 
             var items = await getMedicationInstructions();
-            var adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, items);
+            CustomListViewAdapter adapter = new CustomListViewAdapter(this, items);
             dataDisplay.Adapter = adapter;
         }
 

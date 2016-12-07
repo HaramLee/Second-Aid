@@ -47,12 +47,12 @@ namespace Second_Aid.Droid
 
 
             var videoItems = await getVideoList();
-            var adapterVideo = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, videoItems);
+            CustomListViewAdapter adapterVideo = new CustomListViewAdapter(this, videoItems);
             videoDisplay.Adapter = adapterVideo;
             videoDisplay.ItemClick += videoListviewClicked;
 
             var items = await getPreInstructions();
-            var adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, items);
+            CustomListViewAdapter adapter = new CustomListViewAdapter(this, items);
             dataDisplay.Adapter = adapter;
             dataDisplay.ItemClick += listviewClicked;
         }

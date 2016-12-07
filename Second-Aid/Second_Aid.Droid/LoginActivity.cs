@@ -40,8 +40,6 @@ namespace Second_Aid.Droid
             login.Click += async (object sender, EventArgs e) => {
                 this.login.Enabled = false;
 
-                Console.Write("BUTTON CLICKED");
-
                 var username = usernameInput.Text.ToString().Trim();
                 var password = passwordInput.Text.ToString();
                 var clinicId = clinicIdInput.Text.ToString();
