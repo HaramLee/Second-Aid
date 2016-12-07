@@ -61,7 +61,7 @@
         android:layout_below="@+id/MedicationContainer"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-            <View
+    <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#4A4E69"
